@@ -1,0 +1,202 @@
+[
+ {
+  "id": "OWN-001",
+  "name": "Avadhi Jain",
+  "team": "Enterprise Architecture",
+  "domain": "Corporate Services",
+  "role": "Chief Architect",
+  "email": "avadhi.jain@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-002",
+  "name": "Rohan Kulkarni",
+  "team": "Claims Platform",
+  "domain": "Claims",
+  "role": "Engineering Manager",
+  "email": "rohan.kulkarni@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-003",
+  "name": "Ananya Rao",
+  "team": "Claims Digital",
+  "domain": "Claims",
+  "role": "Product Owner",
+  "email": "ananya.rao@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-004",
+  "name": "Dev Patel",
+  "team": "Claims Integration",
+  "domain": "Claims",
+  "role": "Tech Lead",
+  "email": "dev.patel@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-005",
+  "name": "Sarah Whitfield",
+  "team": "Policy Platform",
+  "domain": "Policy Admin",
+  "role": "Head of Platform",
+  "email": "sarah.whitfield@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-006",
+  "name": "Marcus Chen",
+  "team": "Policy Services",
+  "domain": "Policy Admin",
+  "role": "Engineering Manager",
+  "email": "marcus.chen@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-007",
+  "name": "Lucia Fernandez",
+  "team": "Underwriting Technology",
+  "domain": "Underwriting",
+  "role": "Head of Technology",
+  "email": "lucia.fernandez@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-008",
+  "name": "James O'Connor",
+  "team": "Pricing & Rating",
+  "domain": "Underwriting",
+  "role": "Tech Lead",
+  "email": "james.oconnor@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-009",
+  "name": "Priya Venkataraman",
+  "team": "Finance Systems",
+  "domain": "Billing & Finance",
+  "role": "Head of Finance Systems",
+  "email": "priya.venkataraman@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-010",
+  "name": "Thomas Becker",
+  "team": "Billing Operations",
+  "domain": "Billing & Finance",
+  "role": "Product Owner",
+  "email": "thomas.becker@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-011",
+  "name": "Hannah Müller",
+  "team": "Treasury & Payments",
+  "domain": "Billing & Finance",
+  "role": "Engineering Manager",
+  "email": "hannah.müller@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-012",
+  "name": "Aisha Khan",
+  "team": "Customer Experience",
+  "domain": "Customer & Distribution",
+  "role": "Head of Digital",
+  "email": "aisha.khan@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-013",
+  "name": "Daniel Okafor",
+  "team": "Distribution Technology",
+  "domain": "Customer & Distribution",
+  "role": "Engineering Manager",
+  "email": "daniel.okafor@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-014",
+  "name": "Elena Petrova",
+  "team": "Customer Data (MDM)",
+  "domain": "Customer & Distribution",
+  "role": "Data Product Owner",
+  "email": "elena.petrova@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-015",
+  "name": "Kenji Tanaka",
+  "team": "Data Platform",
+  "domain": "Data & Analytics",
+  "role": "Head of Data Platform",
+  "email": "kenji.tanaka@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-016",
+  "name": "Olivia Brennan",
+  "team": "AI & Automation",
+  "domain": "Data & Analytics",
+  "role": "Head of AI",
+  "email": "olivia.brennan@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-017",
+  "name": "Rahul Mehta",
+  "team": "Integration Platform",
+  "domain": "Integration & Platform",
+  "role": "Integration Architect",
+  "email": "rahul.mehta@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-018",
+  "name": "Sofia Rossi",
+  "team": "Cloud Platform",
+  "domain": "Integration & Platform",
+  "role": "Cloud Platform Lead",
+  "email": "sofia.rossi@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-019",
+  "name": "Noah Williams",
+  "team": "Security Engineering",
+  "domain": "Integration & Platform",
+  "role": "Security Architect",
+  "email": "noah.williams@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-020",
+  "name": "Chloe Dubois",
+  "team": "Site Reliability",
+  "domain": "Integration & Platform",
+  "role": "SRE Lead",
+  "email": "chloe.dubois@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-021",
+  "name": "Arjun Nambiar",
+  "team": "Corporate Applications",
+  "domain": "Corporate Services",
+  "role": "Engineering Manager",
+  "email": "arjun.nambiar@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-022",
+  "name": "Grace Liu",
+  "team": "HR Technology",
+  "domain": "Corporate Services",
+  "role": "Product Owner",
+  "email": "grace.liu@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-023",
+  "name": "Victor Alvarez",
+  "team": "Mainframe Services",
+  "domain": "Claims",
+  "role": "Mainframe Lead",
+  "email": "victor.alvarez@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-024",
+  "name": "Fatima Hassan",
+  "team": "Data Governance",
+  "domain": "Data & Analytics",
+  "role": "Governance Lead",
+  "email": "fatima.hassan@northwind-assurance.example"
+ },
+ {
+  "id": "OWN-025",
+  "name": "Liam Gallagher",
+  "team": "Vendor Management",
+  "domain": "Corporate Services",
+  "role": "Vendor Manager",
+  "email": "liam.gallagher@northwind-assurance.example"
+ }
+]

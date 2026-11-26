@@ -1,0 +1,90 @@
+[
+ {
+  "id": "WF-001",
+  "name": "Claim Submission and Enquiries",
+  "domain": "Claims",
+  "steps": [
+   {
+    "app_id": "APP-004",
+    "api_id": "API-0001"
+   },
+   {
+    "app_id": "APP-002",
+    "api_id": "API-0001"
+   },
+   {
+    "app_id": "APP-001",
+    "api_id": null
+   }
+  ],
+  "apis": [
+   "API-0001"
+  ],
+  "apps": [
+   "APP-004",
+   "APP-002",
+   "APP-001"
+  ],
+  "volume_per_day": 18500,
+  "sla_minutes": 15
+ },
+ {
+  "id": "WF-002",
+  "name": "Claim Payment and Finance Reconciliation",
+  "domain": "Claims",
+  "steps": [
+   {
+    "app_id": "APP-001",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-003",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-008",
+    "api_id": null
+   }
+  ],
+  "apis": [],
+  "apps": [
+   "APP-001",
+   "APP-003",
+   "APP-008"
+  ],
+  "volume_per_day": 4200,
+  "sla_minutes": 240
+ },
+ {
+  "id": "WF-003",
+  "name": "Nightly Claims Batch and Regulatory Reporting",
+  "domain": "Claims",
+  "steps": [
+   {
+    "app_id": "APP-001",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-006",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-005",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-007",
+    "api_id": null
+   }
+  ],
+  "apis": [],
+  "apps": [
+   "APP-001",
+   "APP-006",
+   "APP-005",
+   "APP-007"
+  ],
+  "volume_per_day": 1200,
+  "sla_minutes": 1440
+ }
+]

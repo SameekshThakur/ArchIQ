@@ -1,0 +1,1035 @@
+[
+ {
+  "id": "STD-SEC-001",
+  "title": "Encryption at rest for data stores",
+  "category": "security",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "All stores holding enterprise data must enable encryption at rest.",
+  "applies_to": [
+   "storage_account",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake"
+  ],
+  "check": {
+   "attr": "encryption_at_rest",
+   "op": "eq",
+   "value": true
+  },
+  "when": null,
+  "remediation": "Enable platform encryption at rest (TDE / SSE) on the resource.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-002",
+  "title": "TLS 1.2 or higher in transit",
+  "category": "security",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "All network endpoints must enforce TLS 1.2 or higher.",
+  "applies_to": [
+   "azure_openai",
+   "storage_account",
+   "key_vault",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake",
+   "ai_search",
+   "app_service",
+   "aks_cluster",
+   "function",
+   "api_management"
+  ],
+  "check": {
+   "attr": "tls_min",
+   "op": "in",
+   "value": [
+    "1.2",
+    "1.3"
+   ]
+  },
+  "when": null,
+  "remediation": "Set the minimum TLS version to 1.2 and disable legacy protocols.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-003",
+  "title": "Secrets held in Key Vault",
+  "category": "security",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "Application secrets must be stored in Azure Key Vault, not in configuration or environment variables.",
+  "applies_to": [
+   "app_service",
+   "aks_cluster",
+   "function"
+  ],
+  "check": {
+   "attr": "secrets_store",
+   "op": "eq",
+   "value": "key_vault"
+  },
+  "when": null,
+  "remediation": "Move secrets to Key Vault and reference them through managed identity.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-004",
+  "title": "Managed identity or OAuth for service authentication",
+  "category": "security",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "Service-to-service access must use managed identity or OAuth 2.0; static API keys are not permitted.",
+  "applies_to": [
+   "app_service",
+   "aks_cluster",
+   "function",
+   "azure_openai",
+   "api"
+  ],
+  "check": {
+   "attr": "auth",
+   "op": "in",
+   "value": [
+    "managed_identity",
+    "oauth2",
+    "mtls"
+   ]
+  },
+  "when": null,
+  "remediation": "Disable local/key authentication and assign a managed identity with least-privilege roles.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-005",
+  "title": "WAF in front of internet-facing endpoints",
+  "category": "security",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "Internet-facing applications must be fronted by a Web Application Firewall.",
+  "applies_to": [
+   "app_service",
+   "api_management",
+   "web_app"
+  ],
+  "check": {
+   "attr": "waf",
+   "op": "eq",
+   "value": true
+  },
+  "when": {
+   "attr": "internet_facing",
+   "op": "eq",
+   "value": true
+  },
+  "remediation": "Place Azure Front Door / Application Gateway WAF in front of the endpoint.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-006",
+  "title": "Security logging to the enterprise SIEM",
+  "category": "security",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Security-relevant logs must stream to the enterprise SIEM.",
+  "applies_to": [
+   "azure_openai",
+   "storage_account",
+   "key_vault",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake",
+   "ai_search",
+   "app_service",
+   "aks_cluster",
+   "function"
+  ],
+  "check": {
+   "attr": "logging",
+   "op": "eq",
+   "value": true
+  },
+  "when": null,
+  "remediation": "Enable diagnostic settings and forward to the Sentinel workspace.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-007",
+  "title": "No shared or password credentials",
+  "category": "security",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "Shared accounts and password-based service credentials are prohibited.",
+  "applies_to": [
+   "sql_database",
+   "postgres",
+   "app_service",
+   "api"
+  ],
+  "check": {
+   "attr": "auth",
+   "op": "ne",
+   "value": "password"
+  },
+  "when": null,
+  "remediation": "Replace password authentication with Entra ID or managed identity.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-009",
+  "title": "PII masked outside production",
+  "category": "security",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Personal data must be masked in non-production environments.",
+  "applies_to": [
+   "storage_account",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake"
+  ],
+  "check": {
+   "attr": "pii_masking",
+   "op": "eq",
+   "value": true
+  },
+  "when": {
+   "attr": "pii",
+   "op": "eq",
+   "value": true
+  },
+  "remediation": "Apply dynamic data masking or synthetic data in lower environments.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-010",
+  "title": "Data classification declared",
+  "category": "security",
+  "kind": "policy",
+  "severity": "low",
+  "statement": "Every data store must declare a data classification.",
+  "applies_to": [
+   "storage_account",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake"
+  ],
+  "check": {
+   "attr": "data_classification",
+   "op": "present"
+  },
+  "when": null,
+  "remediation": "Tag the resource with a data classification label.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-012",
+  "title": "Customer-managed keys for restricted data",
+  "category": "security",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Restricted data must be encrypted with customer-managed keys.",
+  "applies_to": [
+   "storage_account",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake"
+  ],
+  "check": {
+   "attr": "cmk",
+   "op": "eq",
+   "value": true
+  },
+  "when": {
+   "attr": "data_classification",
+   "op": "eq",
+   "value": "restricted"
+  },
+  "remediation": "Bind the resource to a Key Vault key and enable CMK.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-014",
+  "title": "PaaS services reached via Private Endpoint only",
+  "category": "security",
+  "kind": "policy",
+  "severity": "critical",
+  "statement": "PaaS services holding enterprise data must disable public network access and be reached through a Private Endpoint.",
+  "applies_to": [
+   "azure_openai",
+   "storage_account",
+   "key_vault",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake",
+   "ai_search"
+  ],
+  "check": {
+   "attr": "public_network_access",
+   "op": "eq",
+   "value": false
+  },
+  "when": null,
+  "remediation": "Set public network access to Disabled and create a Private Endpoint in the workload subnet.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-SEC-015",
+  "title": "No direct cross-domain database access",
+  "category": "security",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "Applications must not read or write another domain's database directly; use APIs or events.",
+  "applies_to": [
+   "integration"
+  ],
+  "check": {
+   "attr": "style",
+   "op": "ne",
+   "value": "direct_db"
+  },
+  "when": null,
+  "remediation": "Expose the data through an API or publish change events and consume those instead.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-INT-001",
+  "title": "APIs published through the gateway",
+  "category": "integration",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "All APIs consumed outside their owning team must be published through the API gateway.",
+  "applies_to": [
+   "api"
+  ],
+  "check": {
+   "attr": "gateway",
+   "op": "eq",
+   "value": true
+  },
+  "when": null,
+  "remediation": "Register the API in Azure API Management and route consumers through it.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-INT-002",
+  "title": "APIs are versioned",
+  "category": "integration",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "APIs must carry an explicit version and a deprecation policy.",
+  "applies_to": [
+   "api"
+  ],
+  "check": {
+   "attr": "versioned",
+   "op": "eq",
+   "value": true
+  },
+  "when": null,
+  "remediation": "Adopt URI or header versioning and publish a deprecation schedule.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-INT-003",
+  "title": "Cross-domain integration via API or event",
+  "category": "integration",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "Cross-domain integration must use an API or an event; file drops and point-to-point links need an exception.",
+  "applies_to": [
+   "integration"
+  ],
+  "check": {
+   "attr": "style",
+   "op": "in",
+   "value": [
+    "api",
+    "event",
+    "esb"
+   ]
+  },
+  "when": null,
+  "remediation": "Re-platform the integration onto an API or Kafka topic.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-INT-004",
+  "title": "Contract-first APIs",
+  "category": "integration",
+  "kind": "policy",
+  "severity": "low",
+  "statement": "APIs must have an OpenAPI/AsyncAPI contract.",
+  "applies_to": [
+   "api"
+  ],
+  "check": {
+   "attr": "contract",
+   "op": "in",
+   "value": [
+    "openapi",
+    "asyncapi"
+   ]
+  },
+  "when": null,
+  "remediation": "Publish an OpenAPI 3.x contract and validate it in CI.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-INT-005",
+  "title": "Async messaging for fire-and-forget flows",
+  "category": "integration",
+  "kind": "policy",
+  "severity": "low",
+  "statement": "Notifications and non-blocking flows should be asynchronous.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "Publish an event rather than calling the consumer synchronously.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-DAT-001",
+  "title": "System of record declared per entity",
+  "category": "data",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Each business entity must have exactly one declared system of record.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "Nominate one system of record and mark the others as consumers.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-DAT-002",
+  "title": "Retention policy applied",
+  "category": "data",
+  "kind": "policy",
+  "severity": "low",
+  "statement": "Data stores must define and enforce a retention policy.",
+  "applies_to": [
+   "storage_account",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake"
+  ],
+  "check": {
+   "attr": "retention_days",
+   "op": "present"
+  },
+  "when": null,
+  "remediation": "Define retention in line with the regulatory schedule.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-DAT-003",
+  "title": "Lineage registered in the catalog",
+  "category": "data",
+  "kind": "policy",
+  "severity": "low",
+  "statement": "Critical datasets must be registered with lineage in the data catalog.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "Register the dataset in Collibra and link upstream sources.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-DAT-004",
+  "title": "Personal data minimisation",
+  "category": "data",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Only the personal data required for the purpose may be collected or propagated.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "Remove unneeded attributes from payloads and replicas.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-CLD-001",
+  "title": "Approved cloud regions",
+  "category": "cloud",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Workloads must run in approved regions (West Europe, North Europe, UK South, East US 2).",
+  "applies_to": [
+   "app_service",
+   "aks_cluster",
+   "function",
+   "azure_openai",
+   "storage_account",
+   "key_vault",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake",
+   "ai_search"
+  ],
+  "check": {
+   "attr": "region",
+   "op": "in",
+   "value": [
+    "westeurope",
+    "northeurope",
+    "uksouth",
+    "eastus2"
+   ]
+  },
+  "when": null,
+  "remediation": "Redeploy to an approved region or raise a data-residency exception.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-CLD-002",
+  "title": "Infrastructure provisioned as code",
+  "category": "cloud",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Cloud resources must be provisioned by Terraform or Bicep through the pipeline.",
+  "applies_to": [
+   "app_service",
+   "aks_cluster",
+   "function",
+   "azure_openai",
+   "storage_account",
+   "key_vault",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake",
+   "ai_search"
+  ],
+  "check": {
+   "attr": "provisioned_by",
+   "op": "in",
+   "value": [
+    "terraform",
+    "bicep"
+   ]
+  },
+  "when": null,
+  "remediation": "Import the resource into IaC and disable portal changes.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-CLD-003",
+  "title": "Mandatory resource tags",
+  "category": "cloud",
+  "kind": "policy",
+  "severity": "low",
+  "statement": "Resources must carry owner, cost-centre and data-classification tags.",
+  "applies_to": [
+   "app_service",
+   "aks_cluster",
+   "function",
+   "azure_openai",
+   "storage_account",
+   "key_vault",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake",
+   "ai_search"
+  ],
+  "check": {
+   "attr": "tags_complete",
+   "op": "eq",
+   "value": true
+  },
+  "when": null,
+  "remediation": "Apply the tag policy initiative.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-CLD-004",
+  "title": "Deployed into the landing zone",
+  "category": "cloud",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Workloads deploy into a governed landing-zone subscription.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "Move the workload into the matching landing-zone subscription.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-AI-002",
+  "title": "Content filtering enabled for LLM workloads",
+  "category": "ai",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "LLM deployments must enable content filtering at standard or strict level.",
+  "applies_to": [
+   "azure_openai"
+  ],
+  "check": {
+   "attr": "content_filter",
+   "op": "in",
+   "value": [
+    "standard",
+    "strict"
+   ]
+  },
+  "when": null,
+  "remediation": "Attach a content filter policy to the deployment.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-AI-003",
+  "title": "Human in the loop for claim decisions",
+  "category": "ai",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "AI must not make or finalise claim, underwriting or pricing decisions without human review.",
+  "applies_to": [
+   "azure_openai",
+   "ai_agent"
+  ],
+  "check": {
+   "attr": "human_in_loop",
+   "op": "eq",
+   "value": true
+  },
+  "when": null,
+  "remediation": "Add an approval step before AI output affects a customer decision.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-AI-004",
+  "title": "No external public LLM APIs",
+  "category": "ai",
+  "kind": "policy",
+  "severity": "critical",
+  "statement": "Calls to external public LLM APIs are prohibited; use the enterprise Azure OpenAI service.",
+  "applies_to": [
+   "llm_api_external"
+  ],
+  "check": {
+   "attr": "never",
+   "op": "eq",
+   "value": true
+  },
+  "when": null,
+  "remediation": "Route inference through Azure OpenAI behind the AI Gateway.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-AI-005",
+  "title": "Prompts and responses audited",
+  "category": "ai",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Prompts and completions must be logged for audit with PII redaction.",
+  "applies_to": [
+   "azure_openai",
+   "ai_agent"
+  ],
+  "check": {
+   "attr": "audit_logging",
+   "op": "eq",
+   "value": true
+  },
+  "when": null,
+  "remediation": "Enable the AI Gateway audit sink.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-RES-001",
+  "title": "Multi-zone deployment for tier-1 services",
+  "category": "resilience",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "Tier-1 services must be deployed across availability zones.",
+  "applies_to": [
+   "app_service",
+   "aks_cluster",
+   "function",
+   "sql_database",
+   "postgres",
+   "cosmos_db"
+  ],
+  "check": {
+   "attr": "multi_az",
+   "op": "eq",
+   "value": true
+  },
+  "when": {
+   "attr": "tier",
+   "op": "in",
+   "value": [
+    "tier1",
+    "critical"
+   ]
+  },
+  "remediation": "Enable zone redundancy for the service.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-RES-002",
+  "title": "Backups configured and tested",
+  "category": "resilience",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Data stores must have automated backups with a tested restore.",
+  "applies_to": [
+   "storage_account",
+   "sql_database",
+   "postgres",
+   "cosmos_db",
+   "data_lake"
+  ],
+  "check": {
+   "attr": "backup",
+   "op": "eq",
+   "value": true
+  },
+  "when": null,
+  "remediation": "Enable automated backup and schedule a quarterly restore test.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-RES-003",
+  "title": "RTO and RPO declared",
+  "category": "resilience",
+  "kind": "policy",
+  "severity": "medium",
+  "statement": "Every design must declare RTO and RPO targets.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "Add RTO/RPO to the NFR section and validate against the tier.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-RES-004",
+  "title": "No single instance for tier-1 workloads",
+  "category": "resilience",
+  "kind": "policy",
+  "severity": "high",
+  "statement": "Tier-1 workloads must not run as a single instance.",
+  "applies_to": [
+   "app_service",
+   "aks_cluster",
+   "function"
+  ],
+  "check": {
+   "attr": "instances",
+   "op": "gte",
+   "value": 2
+  },
+  "when": {
+   "attr": "tier",
+   "op": "in",
+   "value": [
+    "tier1",
+    "critical"
+   ]
+  },
+  "remediation": "Run at least two instances behind a load balancer.",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-TECH-001",
+  "title": "Azure OpenAI",
+  "category": "technology",
+  "kind": "approved_technology",
+  "severity": "info",
+  "statement": "Azure OpenAI is the approved enterprise LLM service.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": "Azure OpenAI",
+  "status": "approved",
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-TECH-002",
+  "title": "Apache Kafka (Confluent)",
+  "category": "technology",
+  "kind": "approved_technology",
+  "severity": "info",
+  "statement": "Kafka is the approved event backbone.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": "Apache Kafka",
+  "status": "approved",
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-TECH-003",
+  "title": "PostgreSQL 15",
+  "category": "technology",
+  "kind": "approved_technology",
+  "severity": "info",
+  "statement": "PostgreSQL 15 is the approved open-source relational database.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": "PostgreSQL 15",
+  "status": "approved",
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-TECH-004",
+  "title": "MuleSoft Anypoint",
+  "category": "technology",
+  "kind": "approved_technology",
+  "severity": "info",
+  "statement": "MuleSoft is approved for system and process APIs.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": "MuleSoft Anypoint",
+  "status": "approved",
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-TECH-005",
+  "title": "Java 8",
+  "category": "technology",
+  "kind": "approved_technology",
+  "severity": "medium",
+  "statement": "Java 8 is deprecated; tolerated until 2027 for existing systems only.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": "Java 8",
+  "status": "deprecated",
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-TECH-006",
+  "title": "Oracle 12c",
+  "category": "technology",
+  "kind": "approved_technology",
+  "severity": "high",
+  "statement": "Oracle 12c is out of vendor support and prohibited for new use.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": "Oracle 12c",
+  "status": "prohibited",
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-TECH-007",
+  "title": "SQL Server 2014",
+  "category": "technology",
+  "kind": "approved_technology",
+  "severity": "high",
+  "statement": "SQL Server 2014 is out of support and prohibited.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": "SQL Server 2014",
+  "status": "prohibited",
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-TECH-008",
+  "title": "Windows Server 2012",
+  "category": "technology",
+  "kind": "approved_technology",
+  "severity": "high",
+  "statement": "Windows Server 2012 is out of support and prohibited.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": "Windows Server 2012",
+  "status": "prohibited",
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-TECH-009",
+  "title": "Node.js 18",
+  "category": "technology",
+  "kind": "approved_technology",
+  "severity": "medium",
+  "statement": "Node.js 18 is end of life; upgrade to Node.js 20.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": "Node.js 18",
+  "status": "deprecated",
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-PAT-001",
+  "title": "API-led connectivity for synchronous integration",
+  "category": "patterns",
+  "kind": "pattern",
+  "severity": "info",
+  "statement": "Synchronous cross-domain integration follows system, process and experience API layering.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-PAT-002",
+  "title": "Event-driven architecture for cross-domain propagation",
+  "category": "patterns",
+  "kind": "pattern",
+  "severity": "info",
+  "statement": "State changes that other domains care about are published as events on Kafka.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ },
+ {
+  "id": "STD-PAT-003",
+  "title": "Strangler-fig for legacy replacement",
+  "category": "patterns",
+  "kind": "pattern",
+  "severity": "info",
+  "statement": "Legacy systems are replaced incrementally behind a facade, never by big-bang cut-over.",
+  "applies_to": [],
+  "check": null,
+  "when": null,
+  "remediation": "",
+  "technology": null,
+  "status": null,
+  "owner": "Architecture Review Board",
+  "effective": "2024-01-01"
+ }
+]

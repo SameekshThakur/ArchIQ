@@ -1,0 +1,66 @@
+[
+ {
+  "id": "OWN-001",
+  "name": "Claims Platform Engineering",
+  "team": "Claims Platform Engineering",
+  "domain": "Claims",
+  "role": "Platform Engineering",
+  "email": "claims.platform@kestrel-assurance.example"
+ },
+ {
+  "id": "OWN-002",
+  "name": "Integration Services",
+  "team": "Integration Services",
+  "domain": "Claims",
+  "role": "Integration Engineering",
+  "email": "integration@kestrel-assurance.example"
+ },
+ {
+  "id": "OWN-003",
+  "name": "Payments Engineering",
+  "team": "Payments Engineering",
+  "domain": "Claims",
+  "role": "Payments Engineering",
+  "email": "payments@kestrel-assurance.example"
+ },
+ {
+  "id": "OWN-004",
+  "name": "Digital Channels",
+  "team": "Digital Channels",
+  "domain": "Claims",
+  "role": "Digital Engineering",
+  "email": "digital@kestrel-assurance.example"
+ },
+ {
+  "id": "OWN-005",
+  "name": "Compliance Technology",
+  "team": "Compliance Technology",
+  "domain": "Claims",
+  "role": "Compliance Engineering",
+  "email": "compliance@kestrel-assurance.example"
+ },
+ {
+  "id": "OWN-006",
+  "name": "Data and Analytics",
+  "team": "Data and Analytics",
+  "domain": "Claims",
+  "role": "Data Engineering",
+  "email": "data@kestrel-assurance.example"
+ },
+ {
+  "id": "OWN-007",
+  "name": "Finance Technology",
+  "team": "Finance Technology",
+  "domain": "Claims",
+  "role": "Finance Engineering",
+  "email": "finance@kestrel-assurance.example"
+ },
+ {
+  "id": "OWN-008",
+  "name": "Enterprise Architecture",
+  "team": "Enterprise Architecture",
+  "domain": "Claims",
+  "role": "Chief Architect",
+  "email": "ea@kestrel-assurance.example"
+ }
+]

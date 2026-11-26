@@ -1,0 +1,38 @@
+[
+ {
+  "id": "CAP-CLM",
+  "name": "Claims Management",
+  "parent": null,
+  "level": 1
+ },
+ {
+  "id": "CAP-CLM-REG",
+  "name": "Claim Registration",
+  "parent": "CAP-CLM",
+  "level": 2
+ },
+ {
+  "id": "CAP-CLM-ASM",
+  "name": "Claim Assessment",
+  "parent": "CAP-CLM",
+  "level": 2
+ },
+ {
+  "id": "CAP-CLM-PAY",
+  "name": "Claim Payment",
+  "parent": "CAP-CLM",
+  "level": 2
+ },
+ {
+  "id": "CAP-CLM-REP",
+  "name": "Regulatory Reporting",
+  "parent": "CAP-CLM",
+  "level": 2
+ },
+ {
+  "id": "CAP-CLM-ENQ",
+  "name": "Customer Enquiry",
+  "parent": "CAP-CLM",
+  "level": 2
+ }
+]

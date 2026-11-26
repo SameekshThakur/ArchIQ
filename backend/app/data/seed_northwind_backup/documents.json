@@ -1,0 +1,1032 @@
+[
+ {
+  "id": "DOC-001",
+  "title": "Claims Intake Portal HLD v1.2",
+  "doc_type": "HLD",
+  "source": "confluence",
+  "domain": "Claims",
+  "author_id": "OWN-003",
+  "created_at": "2023-11-05T09:00:00+00:00",
+  "updated_at": "2024-02-29T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/764635",
+  "text": "# Claims Intake Portal HLD v1.2\n\nStatus: Superseded. Last reviewed 2024-02-29. Owner: Ananya Rao.\n\n## 1. Purpose\nHigh-level design of the digital claim intake channel.\n\n## 2. Architecture overview\n### Claims Intake Portal\nClaims Intake Portal is hosted on Azure App Service. Claims Intake Portal calls Customer Notification Hub Campaign API. Claims Intake Portal calls Claims Notification Reserve API. Claims Intake Portal calls Policy Admin Renewal API. Claims Intake Portal calls Claims Notification Settlement API. Claims Intake Portal calls Claims Analytics Mart Fraud Signal API.\n\nClaims Intake Portal calls Customer API v1.\n\n## 3. Open issues\n- Capacity planning for Claims Intake Portal is not yet agreed.\n- Resilience testing of Claims Intake Portal has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "claims",
+   "intake"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-002",
+  "title": "Claims Intake Portal LLD v2.0",
+  "doc_type": "LLD",
+  "source": "confluence",
+  "domain": "Claims",
+  "author_id": "OWN-002",
+  "created_at": "2026-05-15T09:00:00+00:00",
+  "updated_at": "2026-09-02T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/537970",
+  "text": "# Claims Intake Portal LLD v2.0\n\nStatus: Approved. Last reviewed 2026-09-02. Owner: Ananya Rao.\n\n## 1. Purpose\nLow-level design after the Customer API v2 migration.\n\n## 2. Architecture overview\n### Claims Intake Portal\nClaims Intake Portal is hosted on Azure App Service. Claims Intake Portal reads from Policy Master DB. Claims Intake Portal integrates with Claims Notification Service using api. Claims Intake Portal calls Subrogation Tracker Adjuster API. Claims Intake Portal calls Guidewire ClaimCenter Claim Document API. Claims Intake Portal calls Claims Notification Settlement API.\n\nClaims Intake Portal calls Customer API v2.\n\n## 3. Open issues\n- Capacity planning for Claims Intake Portal is not yet agreed.\n- Resilience testing of Claims Intake Portal has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "claims",
+   "intake"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-003",
+  "title": "Guidewire ClaimCenter Target State HLD (Draft)",
+  "doc_type": "HLD",
+  "source": "sharepoint",
+  "domain": "Claims",
+  "author_id": "OWN-004",
+  "created_at": "2025-08-06T09:00:00+00:00",
+  "updated_at": "2025-09-21T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/guidewire-claimcenter-target-state-hld-draft.docx",
+  "text": "# Guidewire ClaimCenter Target State HLD\n\nStatus: Draft. Last reviewed 2025-09-21. Owner: Rohan Kulkarni.\n\n## 1. Purpose\nAspirational cloud target state for ClaimCenter.\n\n## 2. Architecture overview\n### Guidewire ClaimCenter\nGuidewire ClaimCenter is hosted on Azure AKS. Guidewire ClaimCenter integrates with Claims Payments Hub using point-to-point. Guidewire ClaimCenter integrates with Claims Document Vault using point-to-point. Guidewire ClaimCenter calls Adjuster Mobile App Coverage API. Guidewire ClaimCenter calls SAP ECC Reconciliation API.\n\n\n## 3. Open issues\n- Capacity planning for Guidewire ClaimCenter is not yet agreed.\n- Resilience testing of Guidewire ClaimCenter has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "claims",
+   "target-state"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-004",
+  "title": "ClaimCenter Operations Runbook",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Claims",
+  "author_id": "OWN-003",
+  "created_at": "2025-09-15T09:00:00+00:00",
+  "updated_at": "2026-09-21T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/887476",
+  "text": "# ClaimCenter Operations Runbook\n\nStatus: Current. Last reviewed 2026-09-21. Owner: Rohan Kulkarni.\n\n## 1. Purpose\nOperational procedures for ClaimCenter.\n\n## 2. Architecture overview\n### Guidewire ClaimCenter\nGuidewire ClaimCenter is hosted on on-premises WebSphere. Guidewire ClaimCenter integrates with Claims Payments Hub using point-to-point. Guidewire ClaimCenter calls Regulatory Reporting Hub Tax API.\n\n\n## 3. Open issues\n- Capacity planning for Guidewire ClaimCenter is not yet agreed.\n- Resilience testing of Guidewire ClaimCenter has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "claims",
+   "ops"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-005",
+  "title": "Policy Admin Core DR Plan 2022",
+  "doc_type": "LLD",
+  "source": "sharepoint",
+  "domain": "Policy Admin",
+  "author_id": "OWN-005",
+  "created_at": "2023-12-05T09:00:00+00:00",
+  "updated_at": "2024-01-20T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/policy-admin-core-dr-plan-2022.docx",
+  "text": "# Policy Admin Core DR Plan 2022\n\nStatus: Outdated. Last reviewed 2024-01-20. Owner: Sarah Whitfield.\n\n## 1. Purpose\nDisaster recovery plan written before the platform upgrade.\n\n## 2. Architecture overview\n### Policy Admin Core\nPolicy Admin Core is hosted on on-premises Windows Server. Policy Admin Core integrates with Collections Manager using point-to-point. Policy Admin Core calls Policy Document Generator Policy API. Policy Admin Core calls Product Catalog Product API. Policy Admin Core calls Renewal Orchestrator Policy Document API v3. Policy Admin Core calls Policy Document Generator Renewal API.\n\nPolicy Admin Core stores its data in SQL Server 2014.\n\n## 3. Open issues\n- Capacity planning for Policy Admin Core is not yet agreed.\n- Resilience testing of Policy Admin Core has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "policy",
+   "dr"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-006",
+  "title": "Policy Platform Target State 2024",
+  "doc_type": "HLD",
+  "source": "confluence",
+  "domain": "Policy Admin",
+  "author_id": "OWN-006",
+  "created_at": "2025-08-08T09:00:00+00:00",
+  "updated_at": "2026-01-09T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/491957",
+  "text": "# Policy Platform Target State 2024\n\nStatus: Draft. Last reviewed 2026-01-09. Owner: Marcus Chen.\n\n## 1. Purpose\nTarget-state proposal for the policy platform data tier.\n\n## 2. Architecture overview\n### Policy Admin Core\nPolicy Admin Core is hosted on on-premises Windows Server. Policy Admin Core calls Claims Copilot Adjuster API.\n\nPolicy Admin Core stores its data in PostgreSQL 15.\n\n## 3. Open issues\n- Capacity planning for Policy Admin Core is not yet agreed.\n- Resilience testing of Policy Admin Core has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "policy",
+   "target-state"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-007",
+  "title": "Customer Data Strategy 2023",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-013",
+  "created_at": "2024-06-24T09:00:00+00:00",
+  "updated_at": "2024-12-05T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/146230",
+  "text": "# Customer Data Strategy 2023\n\nStatus: Outdated. Last reviewed 2024-12-05. Owner: Aisha Khan.\n\n## 1. Purpose\nCustomer data strategy from the CRM consolidation programme.\n\n## 2. Architecture overview\n### Salesforce CRM\nSalesforce CRM is hosted on the vendor-hosted SaaS tenant. Salesforce CRM integrates with Collections Manager using api. Salesforce CRM integrates with Consent & Preference Manager using api. Salesforce CRM calls Collections Statement API. Salesforce CRM calls Agent Portal Contact API. Salesforce CRM calls Customer 360 Feature API.\n\nSalesforce CRM is the system of record for customer data.\n\n## 3. Open issues\n- Capacity planning for Salesforce CRM is not yet agreed.\n- Resilience testing of Salesforce CRM has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "customer",
+   "mdm"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-008",
+  "title": "MDM Programme Charter 2024",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-012",
+  "created_at": "2026-03-09T09:00:00+00:00",
+  "updated_at": "2026-04-09T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/511702",
+  "text": "# MDM Programme Charter 2024\n\nStatus: Approved. Last reviewed 2026-04-09. Owner: Elena Petrova.\n\n## 1. Purpose\nCharter for the customer master programme.\n\n## 2. Architecture overview\n### Customer Master (MDM)\nCustomer Master (MDM) is hosted on Azure App Service. Customer Master (MDM) calls Payroll Integration Legal Matter API. Customer Master (MDM) calls Policy Search Renewal API. Customer Master (MDM) calls Broker Gateway Campaign API.\n\nCustomer Master (MDM) is the system of record for customer data.\n\n## 3. Open issues\n- Capacity planning for Customer Master (MDM) is not yet agreed.\n- Resilience testing of Customer Master (MDM) has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "customer",
+   "mdm"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-009",
+  "title": "Northwind Customer Hub Overview",
+  "doc_type": "SharePoint",
+  "source": "sharepoint",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-012",
+  "created_at": "2023-02-28T09:00:00+00:00",
+  "updated_at": "2023-04-15T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/northwind-customer-hub-overview.docx",
+  "text": "# Northwind Customer Hub Overview\n\nStatus: Outdated. Last reviewed 2023-04-15. Owner: Elena Petrova.\n\n## 1. Purpose\nLegacy customer hub overview.\n\n## 2. Architecture overview\n### Northwind Customer Hub\nNorthwind Customer Hub is hosted on on-premises Windows Server. Northwind Customer Hub integrates with Regulatory Reporting Hub using api. Northwind Customer Hub integrates with Snowflake Data Cloud using esb. Northwind Customer Hub integrates with Guidewire ClaimCenter using point-to-point. Northwind Customer Hub integrates with Adjuster Mobile App using point-to-point. Northwind Customer Hub calls Customer Notification Hub Campaign API.\n\nNorthwind Customer Hub is the system of record for customer data.\n\n## 3. Open issues\n- Capacity planning for Northwind Customer Hub is not yet agreed.\n- Resilience testing of Northwind Customer Hub has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "customer",
+   "legacy"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-010",
+  "title": "Finance and Customer Integration HLD",
+  "doc_type": "HLD",
+  "source": "confluence",
+  "domain": "Integration & Platform",
+  "author_id": "OWN-018",
+  "created_at": "2025-12-24T09:00:00+00:00",
+  "updated_at": "2026-09-14T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/488019",
+  "text": "# Finance and Customer Integration HLD\n\nStatus: Approved. Last reviewed 2026-09-14. Owner: Rahul Mehta.\n\n## 1. Purpose\nDescribes the SAP to Snowflake data flow through MuleSoft and Salesforce.\n\n## 2. Architecture overview\n### SAP S/4HANA Finance\nSAP S/4HANA Finance is hosted on on-premises Linux servers. SAP S/4HANA Finance integrates with Subrogation Tracker using esb. SAP S/4HANA Finance calls Snowflake Data Cloud Model API v3. SAP S/4HANA Finance calls General Ledger Reconciler Invoice API. SAP S/4HANA Finance calls Tax Invoice API.\n\n### MuleSoft Anypoint\nMuleSoft Anypoint is hosted on Azure AKS. MuleSoft Anypoint integrates with Salesforce CRM using api. MuleSoft Anypoint calls File Transfer Gateway Subscription API. MuleSoft Anypoint calls File Transfer Gateway Event API v2.\n\n### Salesforce CRM\nSalesforce CRM is hosted on the vendor-hosted SaaS tenant. Salesforce CRM integrates with Collections Manager using api. Salesforce CRM calls Customer 360 Feature API.\n\n### Snowflake Data Cloud\nSnowflake Data Cloud is hosted on the vendor-hosted SaaS tenant. Snowflake Data Cloud calls Feature Store Model API. Snowflake Data Cloud calls AI Gateway Metric API. Snowflake Data Cloud calls Customer 360 Prompt API.\n\nSAP S/4HANA Finance integrates with MuleSoft Anypoint using api.\nMuleSoft Anypoint integrates with Salesforce CRM using api.\nSalesforce CRM integrates with Snowflake Data Cloud using event.\n\n## 3. Open issues\n- Capacity planning for MuleSoft Anypoint is not yet agreed.\n- Resilience testing of SAP S/4HANA Finance has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "integration",
+   "finance"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-011",
+  "title": "ADR-0031: Adopt Kafka as the enterprise event backbone",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Integration & Platform",
+  "author_id": "OWN-018",
+  "created_at": "2026-01-19T09:00:00+00:00",
+  "updated_at": "2026-03-29T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0031-adopt-kafka-as-the-enterprise-event-backbone.md",
+  "text": "# ADR-0031: Adopt Kafka as the enterprise event backbone\n\nStatus: accepted\n\n## Context\nThe estate has grown organically and MuleSoft Anypoint and Kafka Event Platform illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: Kafka Event Platform becomes the standard for cross-domain events.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0031",
+   "status": "accepted",
+   "decision": "Kafka Event Platform becomes the standard for cross-domain events.",
+   "date": "2026-01-03"
+  }
+ },
+ {
+  "id": "DOC-012",
+  "title": "ADR-0034: Use Azure OpenAI for generative AI workloads",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Data & Analytics",
+  "author_id": "OWN-024",
+  "created_at": "2024-07-28T09:00:00+00:00",
+  "updated_at": "2025-06-28T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0034-use-azure-openai-for-generative-ai-workloads.md",
+  "text": "# ADR-0034: Use Azure OpenAI for generative AI workloads\n\nStatus: accepted\n\n## Context\nThe estate has grown organically and AI Gateway and Feature Store illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: Azure OpenAI behind the AI Gateway is the only approved LLM service.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0034",
+   "status": "accepted",
+   "decision": "Azure OpenAI behind the AI Gateway is the only approved LLM service.",
+   "date": "2026-09-14"
+  }
+ },
+ {
+  "id": "DOC-013",
+  "title": "ADR-0036: Require private endpoints for PaaS services",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Integration & Platform",
+  "author_id": "OWN-019",
+  "created_at": "2026-04-09T09:00:00+00:00",
+  "updated_at": "2026-07-30T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0036-require-private-endpoints-for-paas-services.md",
+  "text": "# ADR-0036: Require private endpoints for PaaS services\n\nStatus: accepted\n\n## Context\nThe estate has grown organically and MuleSoft Anypoint and Observability Stack illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: All PaaS holding enterprise data is reached via Private Endpoint (STD-SEC-014).\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0036",
+   "status": "accepted",
+   "decision": "All PaaS holding enterprise data is reached via Private Endpoint (STD-SEC-014).",
+   "date": "2026-08-11"
+  }
+ },
+ {
+  "id": "DOC-014",
+  "title": "ADR-0038: Retire Oracle 12c by end of FY27",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Policy Admin",
+  "author_id": "OWN-005",
+  "created_at": "2026-04-03T09:00:00+00:00",
+  "updated_at": "2026-06-22T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0038-retire-oracle-12c-by-end-of-fy27.md",
+  "text": "# ADR-0038: Retire Oracle 12c by end of FY27\n\nStatus: accepted\n\n## Context\nThe estate has grown organically and Policy Admin Core and Policy Document Generator illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: Policy Master DB migrates to PostgreSQL 15 and direct DB consumers move to APIs.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0038",
+   "status": "accepted",
+   "decision": "Policy Master DB migrates to PostgreSQL 15 and direct DB consumers move to APIs.",
+   "date": "2026-02-18"
+  }
+ },
+ {
+  "id": "DOC-015",
+  "title": "ADR-0040: MuleSoft for system and process APIs",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Integration & Platform",
+  "author_id": "OWN-018",
+  "created_at": "2025-06-12T09:00:00+00:00",
+  "updated_at": "2025-08-15T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0040-mulesoft-for-system-and-process-apis.md",
+  "text": "# ADR-0040: MuleSoft for system and process APIs\n\nStatus: accepted\n\n## Context\nThe estate has grown organically and MuleSoft Anypoint and Kafka Event Platform illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: MuleSoft Anypoint hosts system and process APIs; experience APIs live in Azure API Management.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0040",
+   "status": "accepted",
+   "decision": "MuleSoft Anypoint hosts system and process APIs; experience APIs live in Azure API Management.",
+   "date": "2025-11-19"
+  }
+ },
+ {
+  "id": "DOC-016",
+  "title": "ADR-0041: Customer API v2 replaces v1",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-013",
+  "created_at": "2024-11-28T09:00:00+00:00",
+  "updated_at": "2026-01-02T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0041-customer-api-v2-replaces-v1.md",
+  "text": "# ADR-0041: Customer API v2 replaces v1\n\nStatus: accepted\n\n## Context\nThe estate has grown organically and Broker Gateway and Northwind Customer Hub illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: Customer API v1 is deprecated; consumers migrate to Customer API v2.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0041",
+   "status": "accepted",
+   "decision": "Customer API v1 is deprecated; consumers migrate to Customer API v2.",
+   "date": "2025-12-07"
+  }
+ },
+ {
+  "id": "DOC-017",
+  "title": "ADR-0043: Strangler-fig facade for the claims mainframe",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Claims",
+  "author_id": "OWN-023",
+  "created_at": "2025-09-18T09:00:00+00:00",
+  "updated_at": "2025-12-11T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0043-strangler-fig-facade-for-the-claims-mainframe.md",
+  "text": "# ADR-0043: Strangler-fig facade for the claims mainframe\n\nStatus: proposed\n\n## Context\nThe estate has grown organically and Salvage & Recovery Service and Claims Document Vault illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: A REST facade fronts Claims Mainframe Core and capabilities migrate incrementally.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0043",
+   "status": "proposed",
+   "decision": "A REST facade fronts Claims Mainframe Core and capabilities migrate incrementally.",
+   "date": "2026-08-09"
+  }
+ },
+ {
+  "id": "DOC-018",
+  "title": "ADR-0044: Consolidate customer master onto Customer Master (MDM)",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-014",
+  "created_at": "2025-07-10T09:00:00+00:00",
+  "updated_at": "2026-02-15T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0044-consolidate-customer-master-onto-customer-master-mdm.md",
+  "text": "# ADR-0044: Consolidate customer master onto Customer Master (MDM)\n\nStatus: proposed\n\n## Context\nThe estate has grown organically and Northwind Customer Hub and Broker Gateway illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: Customer Master (MDM) becomes the single system of record for customer data.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0044",
+   "status": "proposed",
+   "decision": "Customer Master (MDM) becomes the single system of record for customer data.",
+   "date": "2026-06-10"
+  }
+ },
+ {
+  "id": "DOC-019",
+  "title": "ADR-0045: Terraform as the only IaC tool",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Integration & Platform",
+  "author_id": "OWN-019",
+  "created_at": "2024-11-01T09:00:00+00:00",
+  "updated_at": "2025-09-18T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0045-terraform-as-the-only-iac-tool.md",
+  "text": "# ADR-0045: Terraform as the only IaC tool\n\nStatus: accepted\n\n## Context\nThe estate has grown organically and Secrets & Key Management and Kafka Event Platform illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: Terraform modules are the standard; Bicep allowed for Azure-native landing zone components.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0045",
+   "status": "accepted",
+   "decision": "Terraform modules are the standard; Bicep allowed for Azure-native landing zone components.",
+   "date": "2025-11-29"
+  }
+ },
+ {
+  "id": "DOC-020",
+  "title": "ADR-0046: Human approval for AI-assisted claim decisions",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Claims",
+  "author_id": "OWN-002",
+  "created_at": "2025-11-20T09:00:00+00:00",
+  "updated_at": "2026-07-03T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0046-human-approval-for-ai-assisted-claim-decisions.md",
+  "text": "# ADR-0046: Human approval for AI-assisted claim decisions\n\nStatus: accepted\n\n## Context\nThe estate has grown organically and Claims Analytics Mart and Claims Notification Service illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: AI may recommend but never finalise a claim decision (STD-AI-003).\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0046",
+   "status": "accepted",
+   "decision": "AI may recommend but never finalise a claim decision (STD-AI-003).",
+   "date": "2025-10-01"
+  }
+ },
+ {
+  "id": "DOC-021",
+  "title": "ADR-0047: Snowflake for governed analytics",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Data & Analytics",
+  "author_id": "OWN-016",
+  "created_at": "2025-05-01T09:00:00+00:00",
+  "updated_at": "2025-09-29T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0047-snowflake-for-governed-analytics.md",
+  "text": "# ADR-0047: Snowflake for governed analytics\n\nStatus: accepted\n\n## Context\nThe estate has grown organically and Feature Store and Snowflake Data Cloud illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: Snowflake is the analytics serving layer; Databricks handles engineering and ML.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0047",
+   "status": "accepted",
+   "decision": "Snowflake is the analytics serving layer; Databricks handles engineering and ML.",
+   "date": "2026-09-01"
+  }
+ },
+ {
+  "id": "DOC-022",
+  "title": "ADR-0048: Decommission Windows Server 2012 estate",
+  "doc_type": "ADR",
+  "source": "git",
+  "domain": "Integration & Platform",
+  "author_id": "OWN-020",
+  "created_at": "2025-09-16T09:00:00+00:00",
+  "updated_at": "2026-08-23T09:00:00+00:00",
+  "path": "northwind/architecture-docs/adr-0048-decommission-windows-server-2012-estate.md",
+  "text": "# ADR-0048: Decommission Windows Server 2012 estate\n\nStatus: superseded\n\n## Context\nThe estate has grown organically and Secrets & Key Management and ServiceNow illustrate the inconsistency this decision addresses.\n\n## Decision\nDecision: Superseded by ADR-0049 sunset plan with firm dates.\n\n## Consequences\n- Teams must plan migration work in their roadmaps.\n- Exceptions require design authority approval.",
+  "tags": [
+   "adr"
+  ],
+  "adr": {
+   "number": "ADR-0048",
+   "status": "superseded",
+   "decision": "Superseded by ADR-0049 sunset plan with firm dates.",
+   "date": "2025-12-20"
+  }
+ },
+ {
+  "id": "DOC-023",
+  "title": "Facilities & Travel High-Level Design",
+  "doc_type": "HLD",
+  "source": "confluence",
+  "domain": "Corporate Services",
+  "author_id": "OWN-025",
+  "created_at": "2025-12-27T09:00:00+00:00",
+  "updated_at": "2026-07-29T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/705316",
+  "text": "# Facilities & Travel High-Level Design\n\nStatus: Current. Last reviewed 2026-07-29. Owner: Arjun Nambiar.\n\n## 1. Purpose\nHigh-Level Design for the Corporate Services domain.\n\n## 2. Architecture overview\n### Facilities & Travel\nFacilities & Travel is hosted on the vendor-hosted SaaS tenant. Facilities & Travel integrates with General Ledger Reconciler using file-batch. Facilities & Travel calls Payroll Integration Legal Matter API. Facilities & Travel calls Payroll Integration Payroll Run API. Facilities & Travel calls Corporate Intranet Payroll Run API. Facilities & Travel calls Payroll Integration Legal Matter API v3.\n\n### Corporate Intranet\nCorporate Intranet is hosted on on-premises Windows Server. Corporate Intranet stores its data in Intranet Content DB. Corporate Intranet reads from Customer Hub DB. Corporate Intranet integrates with Claims Intake Portal using file-batch. Corporate Intranet calls Payroll Integration Legal Matter API. Corporate Intranet calls Consent & Preference Broker API.\n\n\n## 3. Open issues\n- Capacity planning for Facilities & Travel is not yet agreed.\n- Resilience testing of Facilities & Travel has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "corporate-services"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-024",
+  "title": "SAP S/4HANA Finance High-Level Design",
+  "doc_type": "HLD",
+  "source": "confluence",
+  "domain": "Billing & Finance",
+  "author_id": "OWN-009",
+  "created_at": "2025-07-23T09:00:00+00:00",
+  "updated_at": "2026-01-03T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/359985",
+  "text": "# SAP S/4HANA Finance High-Level Design\n\nStatus: Current. Last reviewed 2026-01-03. Owner: Hannah Müller.\n\n## 1. Purpose\nHigh-Level Design for the Billing & Finance domain.\n\n## 2. Architecture overview\n### SAP S/4HANA Finance\nSAP S/4HANA Finance is hosted on on-premises Linux servers. SAP S/4HANA Finance stores its data in S/4HANA Finance DB. SAP S/4HANA Finance integrates with MuleSoft Anypoint using api. SAP S/4HANA Finance integrates with Subrogation Tracker using esb. SAP S/4HANA Finance calls Treasury Workstation Invoice API. SAP S/4HANA Finance calls Claims Notification Claim Document API.\n\n### Duck Creek Billing\nDuck Creek Billing is hosted on on-premises Windows Server. Duck Creek Billing stores its data in Duck Creek Billing DB. Duck Creek Billing integrates with Treasury Workstation using api. Duck Creek Billing integrates with Endorsement Engine using point-to-point. Duck Creek Billing calls Payment Gateway Reconciliation API. Duck Creek Billing calls Treasury Workstation Invoice API.\n\n### Commission Statement Service\nCommission Statement Service is hosted on on-premises Linux servers. Commission Statement Service integrates with Duck Creek Billing using api. Commission Statement Service integrates with Third-Party Data Gateway using esb. Commission Statement Service integrates with Policy Search Service using file-batch. Commission Statement Service calls AI Gateway Dataset API. Commission Statement Service calls Regulatory Reporting Hub Tax API.\n\n### SAP ECC\nSAP ECC is hosted on on-premises Linux servers. SAP ECC integrates with General Ledger Reconciler using point-to-point. SAP ECC calls Payment Gateway Payment API. SAP ECC calls Treasury Workstation Ledger Entry API.\n\n\n## 3. Open issues\n- Capacity planning for Duck Creek Billing is not yet agreed.\n- Resilience testing of SAP S/4HANA Finance has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "billing-finance"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-025",
+  "title": "Marketing Automation High-Level Design",
+  "doc_type": "HLD",
+  "source": "confluence",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-014",
+  "created_at": "2025-11-12T09:00:00+00:00",
+  "updated_at": "2026-07-13T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/460489",
+  "text": "# Marketing Automation High-Level Design\n\nStatus: Current. Last reviewed 2026-07-13. Owner: Aisha Khan.\n\n## 1. Purpose\nHigh-Level Design for the Customer & Distribution domain.\n\n## 2. Architecture overview\n### Marketing Automation\nMarketing Automation is hosted on the vendor-hosted SaaS tenant. Marketing Automation integrates with Claims Document Vault using api. Marketing Automation integrates with Consent & Preference Manager using api. Marketing Automation calls Commission Statement Tax API. Marketing Automation calls Consent & Preference Broker API. Marketing Automation calls Policy Quote Portal Renewal API.\n\n### Customer Notification Hub\nCustomer Notification Hub is hosted on Azure AKS. Customer Notification Hub stores its data in Notification State Store. Customer Notification Hub reads from Customer Hub DB. Customer Notification Hub integrates with Subrogation Tracker using esb. Customer Notification Hub integrates with Observability Stack using esb. Customer Notification Hub integrates with Salesforce CRM using event.\n\n\n## 3. Open issues\n- Capacity planning for Marketing Automation is not yet agreed.\n- Resilience testing of Marketing Automation has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "customer-distribution"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-026",
+  "title": "Salvage & Recovery Service High-Level Design",
+  "doc_type": "HLD",
+  "source": "confluence",
+  "domain": "Claims",
+  "author_id": "OWN-003",
+  "created_at": "2025-11-22T09:00:00+00:00",
+  "updated_at": "2026-06-27T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/799096",
+  "text": "# Salvage & Recovery Service High-Level Design\n\nStatus: Current. Last reviewed 2026-06-27. Owner: Victor Alvarez.\n\n## 1. Purpose\nHigh-Level Design for the Claims domain.\n\n## 2. Architecture overview\n### Salvage & Recovery Service\nSalvage & Recovery Service is hosted on Azure AKS. Salvage & Recovery Service integrates with Endorsement Engine using api. Salvage & Recovery Service integrates with Workday HCM using event. Salvage & Recovery Service integrates with Commission Statement Service using file-batch. Salvage & Recovery Service calls Guidewire ClaimCenter Adjuster API. Salvage & Recovery Service calls Guidewire ClaimCenter Claim Document API.\n\n### Claims Copilot\nClaims Copilot is hosted on Azure App Service. Claims Copilot integrates with Guidewire ClaimCenter using event. Claims Copilot integrates with Payroll Integration Service using file-batch. Claims Copilot calls Claims Analytics Mart Reserve API. Claims Copilot calls Customer 360 Prompt API.\n\n### Adjuster Mobile App\nAdjuster Mobile App is hosted on Azure App Service. Adjuster Mobile App integrates with Claims Notification Service using event. Adjuster Mobile App calls Claims Notification Reserve API. Adjuster Mobile App calls Claims Mainframe Fraud Signal API. Adjuster Mobile App calls Salvage & Recovery Adjuster API. Adjuster Mobile App calls Claims Copilot Subrogation API.\n\n\n## 3. Open issues\n- Capacity planning for Claims Copilot is not yet agreed.\n- Resilience testing of Claims Copilot has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "claims"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-027",
+  "title": "Subrogation Tracker High-Level Design",
+  "doc_type": "HLD",
+  "source": "confluence",
+  "domain": "Claims",
+  "author_id": "OWN-002",
+  "created_at": "2025-09-27T09:00:00+00:00",
+  "updated_at": "2026-08-16T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/448169",
+  "text": "# Subrogation Tracker High-Level Design\n\nStatus: Current. Last reviewed 2026-08-16. Owner: Rohan Kulkarni.\n\n## 1. Purpose\nHigh-Level Design for the Claims domain.\n\n## 2. Architecture overview\n### Subrogation Tracker\nSubrogation Tracker is hosted on on-premises Windows Server. Subrogation Tracker integrates with Fraud Scoring Engine using api. Subrogation Tracker integrates with Endorsement Engine using file-batch. Subrogation Tracker integrates with Adjuster Mobile App using file-batch. Subrogation Tracker calls SAP S/4HANA Finance Payment API. Subrogation Tracker calls Guidewire ClaimCenter Claim Document API.\n\n### Fraud Scoring Engine\nFraud Scoring Engine is hosted on Azure App Service. Fraud Scoring Engine stores its data in Fraud Feature Schema. Fraud Scoring Engine reads from Policy Master DB. Fraud Scoring Engine reads from Claims Mainframe DB2. Fraud Scoring Engine calls Claims Payments Hub Subrogation API.\n\n### Salvage & Recovery Service\nSalvage & Recovery Service is hosted on Azure AKS. Salvage & Recovery Service stores its data in Salvage & Recovery DB. Salvage & Recovery Service integrates with Endorsement Engine using api. Salvage & Recovery Service integrates with Workday HCM using event. Salvage & Recovery Service calls Guidewire ClaimCenter Adjuster API. Salvage & Recovery Service calls Claims Notification Settlement API.\n\n\n## 3. Open issues\n- Capacity planning for Fraud Scoring Engine is not yet agreed.\n- Resilience testing of Subrogation Tracker has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "claims"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-028",
+  "title": "Northwind Customer Hub High-Level Design",
+  "doc_type": "HLD",
+  "source": "confluence",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-014",
+  "created_at": "2025-04-11T09:00:00+00:00",
+  "updated_at": "2026-02-05T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/530883",
+  "text": "# Northwind Customer Hub High-Level Design\n\nStatus: Current. Last reviewed 2026-02-05. Owner: Elena Petrova.\n\n## 1. Purpose\nHigh-Level Design for the Customer & Distribution domain.\n\n## 2. Architecture overview\n### Northwind Customer Hub\nNorthwind Customer Hub is hosted on on-premises Windows Server. Northwind Customer Hub stores its data in Customer Hub DB. Northwind Customer Hub integrates with Consent & Preference Manager using api. Northwind Customer Hub integrates with Regulatory Reporting Hub using api. Northwind Customer Hub integrates with Snowflake Data Cloud using esb. Northwind Customer Hub integrates with Snowflake Data Cloud using point-to-point.\n\n### Customer Self-Service Portal\nCustomer Self-Service Portal is hosted on Azure App Service. Customer Self-Service Portal integrates with Product Catalog Service using event. Customer Self-Service Portal calls Broker Gateway Party API. Customer Self-Service Portal calls Customer Master (MDM) Agent API. Customer Self-Service Portal calls Risk Scoring Rate API. Customer Self-Service Portal calls Guidewire ClaimCenter Claim Document API.\n\n### Customer Master (MDM)\nCustomer Master (MDM) is hosted on Azure App Service. Customer Master (MDM) stores its data in Customer Master (MDM) DB. Customer Master (MDM) integrates with Customer Notification Hub using esb. Customer Master (MDM) calls Payroll Integration Legal Matter API. Customer Master (MDM) calls Collections Statement API. Customer Master (MDM) calls Policy Search Renewal API.\n\n### Customer Notification Hub\nCustomer Notification Hub is hosted on Azure AKS. Customer Notification Hub stores its data in Notification State Store. Customer Notification Hub reads from Customer Hub DB. Customer Notification Hub integrates with Subrogation Tracker using esb. Customer Notification Hub integrates with Northwind Customer Hub using event. Customer Notification Hub calls Salvage & Recovery Reserve API.\n\n\n## 3. Open issues\n- Capacity planning for Customer Self-Service Portal is not yet agreed.\n- Resilience testing of Northwind Customer Hub has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "customer-distribution"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-029",
+  "title": "Enterprise Data Warehouse Low-Level Design",
+  "doc_type": "LLD",
+  "source": "confluence",
+  "domain": "Data & Analytics",
+  "author_id": "OWN-016",
+  "created_at": "2023-09-27T09:00:00+00:00",
+  "updated_at": "2023-12-31T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/854069",
+  "text": "# Enterprise Data Warehouse Low-Level Design\n\nStatus: Outdated. Last reviewed 2023-12-31. Owner: Fatima Hassan.\n\n## 1. Purpose\nLow-Level Design for the Data & Analytics domain.\n\n## 2. Architecture overview\n### Enterprise Data Warehouse\nEnterprise Data Warehouse is hosted on on-premises Linux servers. Enterprise Data Warehouse stores its data in Enterprise DW. Enterprise Data Warehouse integrates with Feature Store using api. Enterprise Data Warehouse calls Feature Store Model API. Enterprise Data Warehouse calls AI Gateway Dataset API. Enterprise Data Warehouse calls Adjuster Mobile App Payment API.\n\n### Power BI Service\nPower BI Service is hosted on the vendor-hosted SaaS tenant. Power BI Service reads from Claims Document Vault DB. Power BI Service integrates with Renewal Orchestrator using esb. Power BI Service integrates with Consent & Preference Manager using file-batch. Power BI Service calls Feature Store Model API. Power BI Service calls AI Gateway Dataset API.\n\n### AI Gateway\nAI Gateway is hosted on Azure AKS. AI Gateway integrates with Corporate Intranet using api. AI Gateway integrates with General Ledger Reconciler using event. AI Gateway calls Corporate Intranet Legal Matter API. AI Gateway calls Enterprise Data Warehouse Feature API. AI Gateway calls Databricks Lakehouse Dataset API.\n\n### Azure OpenAI Platform\nAzure OpenAI Platform is hosted on Azure AKS. Azure OpenAI Platform integrates with Feature Store using api. Azure OpenAI Platform calls AI Gateway Dataset API. Azure OpenAI Platform calls AI Gateway Metric API.\n\n\n## 3. Open issues\n- Capacity planning for Azure OpenAI Platform is not yet agreed.\n- Resilience testing of Power BI Service has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "data-analytics"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-030",
+  "title": "Customer 360 Service Low-Level Design",
+  "doc_type": "LLD",
+  "source": "confluence",
+  "domain": "Data & Analytics",
+  "author_id": "OWN-016",
+  "created_at": "2026-04-02T09:00:00+00:00",
+  "updated_at": "2026-09-13T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/237388",
+  "text": "# Customer 360 Service Low-Level Design\n\nStatus: Current. Last reviewed 2026-09-13. Owner: Fatima Hassan.\n\n## 1. Purpose\nLow-Level Design for the Data & Analytics domain.\n\n## 2. Architecture overview\n### Customer 360 Service\nCustomer 360 Service is hosted on Azure AKS. Customer 360 Service integrates with Product Catalog Service using api. Customer 360 Service integrates with Policy Admin Core using api. Customer 360 Service integrates with Agent Portal using file-batch. Customer 360 Service integrates with SAP S/4HANA Finance using point-to-point. Customer 360 Service calls Renewal Orchestrator Policy Document API.\n\n### Power BI Service\nPower BI Service is hosted on the vendor-hosted SaaS tenant. Power BI Service integrates with Customer 360 Service using api. Power BI Service integrates with Databricks Lakehouse using api. Power BI Service integrates with Renewal Orchestrator using esb. Power BI Service integrates with Consent & Preference Manager using file-batch. Power BI Service calls Feature Store Model API.\n\n### Databricks Lakehouse\nDatabricks Lakehouse is hosted on Azure AKS. Databricks Lakehouse stores its data in Lakehouse Raw Zone. Databricks Lakehouse integrates with Facilities & Travel using file-batch. Databricks Lakehouse calls Feature Store Model API. Databricks Lakehouse calls Azure OpenAI Lineage API.\n\n### Azure OpenAI Platform\nAzure OpenAI Platform is hosted on Azure AKS. Azure OpenAI Platform calls Snowflake Data Cloud Metric API. Azure OpenAI Platform calls AI Gateway Metric API. Azure OpenAI Platform calls Power BI Prompt API.\n\n\n## 3. Open issues\n- Capacity planning for Power BI Service is not yet agreed.\n- Resilience testing of Databricks Lakehouse has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "data-analytics"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-031",
+  "title": "Risk Scoring Service Low-Level Design",
+  "doc_type": "LLD",
+  "source": "confluence",
+  "domain": "Underwriting",
+  "author_id": "OWN-008",
+  "created_at": "2026-06-15T09:00:00+00:00",
+  "updated_at": "2026-09-15T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/784931",
+  "text": "# Risk Scoring Service Low-Level Design\n\nStatus: Current. Last reviewed 2026-09-15. Owner: Lucia Fernandez.\n\n## 1. Purpose\nLow-Level Design for the Underwriting domain.\n\n## 2. Architecture overview\n### Risk Scoring Service\nRisk Scoring Service is hosted on Azure AKS. Risk Scoring Service stores its data in Risk Scoring DB. Risk Scoring Service integrates with Claims Copilot using api. Risk Scoring Service integrates with Collections Manager using event. Risk Scoring Service calls Payment Gateway Reconciliation API. Risk Scoring Service calls Underwriting Workbench Exposure API.\n\n### Catastrophe Modelling Suite\nCatastrophe Modelling Suite is hosted on on-premises Windows Server. Catastrophe Modelling Suite integrates with AI Gateway using api. Catastrophe Modelling Suite calls Rating Exposure API. Catastrophe Modelling Suite calls Underwriting Workbench Exposure API. Catastrophe Modelling Suite calls Third-Party Data Gateway Referral API. Catastrophe Modelling Suite calls Corporate Intranet Payroll Run API.\n\n\n## 3. Open issues\n- Capacity planning for Catastrophe Modelling Suite is not yet agreed.\n- Resilience testing of Risk Scoring Service has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "underwriting"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-032",
+  "title": "Snowflake Data Cloud Low-Level Design",
+  "doc_type": "LLD",
+  "source": "confluence",
+  "domain": "Data & Analytics",
+  "author_id": "OWN-024",
+  "created_at": "2025-08-17T09:00:00+00:00",
+  "updated_at": "2026-08-26T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/458844",
+  "text": "# Snowflake Data Cloud Low-Level Design\n\nStatus: Current. Last reviewed 2026-08-26. Owner: Fatima Hassan.\n\n## 1. Purpose\nLow-Level Design for the Data & Analytics domain.\n\n## 2. Architecture overview\n### Snowflake Data Cloud\nSnowflake Data Cloud is hosted on the vendor-hosted SaaS tenant. Snowflake Data Cloud integrates with Claims Notification Service using point-to-point. Snowflake Data Cloud calls AI Gateway Metric API. Snowflake Data Cloud calls Power BI Prompt API. Snowflake Data Cloud calls Customer 360 Prompt API.\n\n### Databricks Lakehouse\nDatabricks Lakehouse is hosted on Azure AKS. Databricks Lakehouse integrates with AI Gateway using api. Databricks Lakehouse integrates with Azure OpenAI Platform using api. Databricks Lakehouse integrates with Facilities & Travel using file-batch. Databricks Lakehouse calls AI Gateway Metric API. Databricks Lakehouse calls AI Gateway Metric API v3.\n\n\n## 3. Open issues\n- Capacity planning for Snowflake Data Cloud is not yet agreed.\n- Resilience testing of Snowflake Data Cloud has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "data-analytics"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-033",
+  "title": "Data Catalog Low-Level Design",
+  "doc_type": "LLD",
+  "source": "confluence",
+  "domain": "Data & Analytics",
+  "author_id": "OWN-024",
+  "created_at": "2025-12-01T09:00:00+00:00",
+  "updated_at": "2026-09-28T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/660741",
+  "text": "# Data Catalog Low-Level Design\n\nStatus: Current. Last reviewed 2026-09-28. Owner: Fatima Hassan.\n\n## 1. Purpose\nLow-Level Design for the Data & Analytics domain.\n\n## 2. Architecture overview\n### Data Catalog\nData Catalog is hosted on the vendor-hosted SaaS tenant. Data Catalog integrates with Fraud Scoring Engine using api. Data Catalog integrates with Databricks Lakehouse using api. Data Catalog integrates with Azure OpenAI Platform using api. Data Catalog integrates with Customer 360 Service using api. Data Catalog integrates with Customer 360 Service using esb.\n\n### Snowflake Data Cloud\nSnowflake Data Cloud is hosted on the vendor-hosted SaaS tenant. Snowflake Data Cloud integrates with Agent Portal using esb. Snowflake Data Cloud integrates with Claims Notification Service using point-to-point. Snowflake Data Cloud calls AI Gateway Metric API. Snowflake Data Cloud calls Customer 360 Prompt API.\n\n### Feature Store\nFeature Store is hosted on Azure App Service. Feature Store stores its data in Feature Cache. Feature Store integrates with Duck Creek Billing using api. Feature Store integrates with Legacy Life Policy System using esb. Feature Store integrates with Identity Platform using esb. Feature Store integrates with Claims Payments Hub using event.\n\n\n## 3. Open issues\n- Capacity planning for Snowflake Data Cloud is not yet agreed.\n- Resilience testing of Feature Store has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "data-analytics"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-034",
+  "title": "Facilities & Travel Low-Level Design",
+  "doc_type": "LLD",
+  "source": "confluence",
+  "domain": "Corporate Services",
+  "author_id": "OWN-025",
+  "created_at": "2024-05-13T09:00:00+00:00",
+  "updated_at": "2025-05-31T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/135415",
+  "text": "# Facilities & Travel Low-Level Design\n\nStatus: Outdated. Last reviewed 2025-05-31. Owner: Arjun Nambiar.\n\n## 1. Purpose\nLow-Level Design for the Corporate Services domain.\n\n## 2. Architecture overview\n### Facilities & Travel\nFacilities & Travel is hosted on the vendor-hosted SaaS tenant. Facilities & Travel integrates with Salesforce CRM using esb. Facilities & Travel calls Payroll Integration Legal Matter API. Facilities & Travel calls Payroll Integration Payroll Run API. Facilities & Travel calls Payroll Integration Legal Matter API v3.\n\n### Legal Matter Management\nLegal Matter Management is hosted on the vendor-hosted SaaS tenant. Legal Matter Management calls Policy Quote Portal Renewal API. Legal Matter Management calls Policy Admin Policy Document API. Legal Matter Management calls Payroll Integration Payroll Run API. Legal Matter Management calls Payroll Integration Legal Matter API v3.\n\n### Payroll Integration Service\nPayroll Integration Service is hosted on on-premises Linux servers. Payroll Integration Service integrates with Fraud Scoring Engine using esb. Payroll Integration Service integrates with Legacy Life Policy System using file-batch. Payroll Integration Service integrates with Third-Party Data Gateway using point-to-point. Payroll Integration Service calls Corporate Intranet Legal Matter API. Payroll Integration Service calls Legal Matter Management Employee API.\n\n### Workday HCM\nWorkday HCM is hosted on the vendor-hosted SaaS tenant. Workday HCM integrates with Consent & Preference Manager using api. Workday HCM integrates with Payroll Integration Service using api. Workday HCM integrates with Secrets & Key Management using api. Workday HCM calls Payroll Integration Legal Matter API. Workday HCM calls Secrets & Key Management Subscription API.\n\n\n## 3. Open issues\n- Capacity planning for Workday HCM is not yet agreed.\n- Resilience testing of Payroll Integration Service has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "corporate-services"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-035",
+  "title": "Salesforce CRM Low-Level Design",
+  "doc_type": "LLD",
+  "source": "confluence",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-014",
+  "created_at": "2024-05-02T09:00:00+00:00",
+  "updated_at": "2024-08-02T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/514734",
+  "text": "# Salesforce CRM Low-Level Design\n\nStatus: Outdated. Last reviewed 2024-08-02. Owner: Aisha Khan.\n\n## 1. Purpose\nLow-Level Design for the Customer & Distribution domain.\n\n## 2. Architecture overview\n### Salesforce CRM\nSalesforce CRM is hosted on the vendor-hosted SaaS tenant. Salesforce CRM integrates with Agent Commission Engine using api. Salesforce CRM integrates with Subrogation Tracker using esb. Salesforce CRM calls Underwriting Workbench Treaty API. Salesforce CRM calls Policy Quote Portal Renewal API. Salesforce CRM calls Consent & Preference Preference API.\n\n### Marketing Automation\nMarketing Automation is hosted on the vendor-hosted SaaS tenant. Marketing Automation integrates with Consent & Preference Manager using api. Marketing Automation calls Commission Statement Tax API. Marketing Automation calls Consent & Preference Broker API. Marketing Automation calls MuleSoft Anypoint Alert API v3. Marketing Automation calls Agent Portal Notification API.\n\n### Customer Notification Hub\nCustomer Notification Hub is hosted on Azure AKS. Customer Notification Hub reads from Customer Hub DB. Customer Notification Hub integrates with Subrogation Tracker using esb. Customer Notification Hub integrates with Observability Stack using esb. Customer Notification Hub integrates with Identity Platform using event. Customer Notification Hub integrates with Northwind Customer Hub using event.\n\n\n## 3. Open issues\n- Capacity planning for Salesforce CRM is not yet agreed.\n- Resilience testing of Marketing Automation has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "customer-distribution"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-036",
+  "title": "Collections Manager Low-Level Design",
+  "doc_type": "LLD",
+  "source": "confluence",
+  "domain": "Billing & Finance",
+  "author_id": "OWN-009",
+  "created_at": "2025-09-17T09:00:00+00:00",
+  "updated_at": "2025-12-25T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/916615",
+  "text": "# Collections Manager Low-Level Design\n\nStatus: Current. Last reviewed 2025-12-25. Owner: Thomas Becker.\n\n## 1. Purpose\nLow-Level Design for the Billing & Finance domain.\n\n## 2. Architecture overview\n### Collections Manager\nCollections Manager is hosted on on-premises Linux servers. Collections Manager stores its data in Policy Master DB. Collections Manager integrates with Payment Gateway Service using api. Collections Manager integrates with Adjuster Mobile App using event. Collections Manager integrates with Endorsement Engine using event. Collections Manager calls Commission Statement Tax API.\n\n### Payment Gateway Service\nPayment Gateway Service is hosted on Azure AKS. Payment Gateway Service stores its data in Payment Gateway DB. Payment Gateway Service integrates with ServiceNow using esb. Payment Gateway Service integrates with Rating Engine using event. Payment Gateway Service integrates with Azure OpenAI Platform using point-to-point. Payment Gateway Service calls Commission Statement Tax API.\n\n### Treasury Workstation\nTreasury Workstation is hosted on on-premises Windows Server. Treasury Workstation stores its data in Treasury Workstation DB. Treasury Workstation integrates with Policy Search Service using esb. Treasury Workstation integrates with Payment Gateway Service using file-batch. Treasury Workstation calls Databricks Lakehouse Lineage API. Treasury Workstation calls Duck Creek Billing Tax API.\n\n### Tax Engine\nTax Engine is hosted on the vendor-hosted SaaS tenant. Tax Engine integrates with Claims Copilot using esb. Tax Engine calls Commission Statement Ledger Entry API. Tax Engine calls General Ledger Reconciler Payment API. Tax Engine calls Treasury Workstation Reconciliation API. Tax Engine calls Payment Gateway Reconciliation API.\n\n\n## 3. Open issues\n- Capacity planning for Payment Gateway Service is not yet agreed.\n- Resilience testing of Treasury Workstation has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "billing-finance"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-037",
+  "title": "Legacy Life Policy System Solution Overview",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Policy Admin",
+  "author_id": "OWN-005",
+  "created_at": "2022-07-07T09:00:00+00:00",
+  "updated_at": "2023-07-15T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/876849",
+  "text": "# Legacy Life Policy System Solution Overview\n\nStatus: Outdated. Last reviewed 2023-07-15. Owner: Sarah Whitfield.\n\n## 1. Purpose\nSolution Overview for the Policy Admin domain.\n\n## 2. Architecture overview\n### Legacy Life Policy System\nLegacy Life Policy System is hosted on on-premises Linux servers. Legacy Life Policy System stores its data in Legacy Life Policy Files. Legacy Life Policy System integrates with Policy Document Generator using api. Legacy Life Policy System integrates with Customer Notification Hub using esb. Legacy Life Policy System calls Policy Search Quote API. Legacy Life Policy System calls Azure API Management Identity API.\n\n### Endorsement Engine\nEndorsement Engine is hosted on Azure AKS. Endorsement Engine stores its data in Endorsement DB. Endorsement Engine integrates with Renewal Orchestrator using event. Endorsement Engine integrates with Salesforce CRM using event. Endorsement Engine calls Policy Search Quote API. Endorsement Engine calls Policy Quote Portal Renewal API.\n\n\n## 3. Open issues\n- Capacity planning for Legacy Life Policy System is not yet agreed.\n- Resilience testing of Endorsement Engine has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "policy-admin"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-038",
+  "title": "Risk Scoring Service Solution Overview",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Underwriting",
+  "author_id": "OWN-007",
+  "created_at": "2025-08-01T09:00:00+00:00",
+  "updated_at": "2025-11-21T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/954659",
+  "text": "# Risk Scoring Service Solution Overview\n\nStatus: Current. Last reviewed 2025-11-21. Owner: James O'Connor.\n\n## 1. Purpose\nSolution Overview for the Underwriting domain.\n\n## 2. Architecture overview\n### Risk Scoring Service\nRisk Scoring Service is hosted on Azure AKS. Risk Scoring Service stores its data in Risk Scoring DB. Risk Scoring Service reads from Rating Engine DB. Risk Scoring Service integrates with Reinsurance Platform using api. Risk Scoring Service calls Claims Copilot Adjuster API. Risk Scoring Service calls Payment Gateway Reconciliation API.\n\n### Catastrophe Modelling Suite\nCatastrophe Modelling Suite is hosted on on-premises Windows Server. Catastrophe Modelling Suite stores its data in Reinsurance & Cat DB. Catastrophe Modelling Suite integrates with AI Gateway using api. Catastrophe Modelling Suite calls Underwriting Workbench Exposure API. Catastrophe Modelling Suite calls AI Gateway Prompt API. Catastrophe Modelling Suite calls Third-Party Data Gateway Referral API.\n\n\n## 3. Open issues\n- Capacity planning for Catastrophe Modelling Suite is not yet agreed.\n- Resilience testing of Risk Scoring Service has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "underwriting"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-039",
+  "title": "Customer Notification Hub Solution Overview",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-013",
+  "created_at": "2025-06-26T09:00:00+00:00",
+  "updated_at": "2026-07-27T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/930895",
+  "text": "# Customer Notification Hub Solution Overview\n\nStatus: Current. Last reviewed 2026-07-27. Owner: Aisha Khan.\n\n## 1. Purpose\nSolution Overview for the Customer & Distribution domain.\n\n## 2. Architecture overview\n### Customer Notification Hub\nCustomer Notification Hub is hosted on Azure AKS. Customer Notification Hub integrates with Subrogation Tracker using esb. Customer Notification Hub integrates with Observability Stack using esb. Customer Notification Hub integrates with Identity Platform using event. Customer Notification Hub integrates with Salesforce CRM using event. Customer Notification Hub integrates with Policy Quote Portal using event.\n\n### Customer Self-Service Portal\nCustomer Self-Service Portal is hosted on Azure App Service. Customer Self-Service Portal stores its data in Customer Self-Service Portal DB. Customer Self-Service Portal calls File Transfer Gateway Subscription API. Customer Self-Service Portal calls Customer Master (MDM) Agent API. Customer Self-Service Portal calls Agent Commission Consent API. Customer Self-Service Portal calls Customer Notification Hub Contact API v2.\n\n### Customer Master (MDM)\nCustomer Master (MDM) is hosted on Azure App Service. Customer Master (MDM) stores its data in Customer Master (MDM) DB. Customer Master (MDM) integrates with Policy Search Service using api. Customer Master (MDM) integrates with Claims Intake Portal using esb. Customer Master (MDM) integrates with Customer Notification Hub using esb. Customer Master (MDM) calls Collections Statement API.\n\n\n## 3. Open issues\n- Capacity planning for Customer Notification Hub is not yet agreed.\n- Resilience testing of Customer Notification Hub has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "customer-distribution"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-040",
+  "title": "Risk Scoring Service and Reinsurance Platform Solution Overview",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Underwriting",
+  "author_id": "OWN-008",
+  "created_at": "2025-10-23T09:00:00+00:00",
+  "updated_at": "2026-08-07T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/167202",
+  "text": "# Risk Scoring Service and Reinsurance Platform Solution Overview\n\nStatus: Current. Last reviewed 2026-08-07. Owner: Lucia Fernandez.\n\n## 1. Purpose\nSolution Overview for the Underwriting domain.\n\n## 2. Architecture overview\n### Risk Scoring Service\nRisk Scoring Service is hosted on Azure AKS. Risk Scoring Service stores its data in Risk Scoring DB. Risk Scoring Service reads from Rating Engine DB. Risk Scoring Service integrates with Rating Engine using api. Risk Scoring Service integrates with Collections Manager using event. Risk Scoring Service calls Claims Copilot Adjuster API.\n\n### Reinsurance Platform\nReinsurance Platform is hosted on on-premises Windows Server. Reinsurance Platform stores its data in Reinsurance & Cat DB. Reinsurance Platform calls Databricks Lakehouse Lineage API. Reinsurance Platform calls Risk Scoring Risk API. Reinsurance Platform calls Rating Exposure API. Reinsurance Platform calls Third-Party Data Gateway Referral API.\n\n\n## 3. Open issues\n- Capacity planning for Reinsurance Platform is not yet agreed.\n- Resilience testing of Risk Scoring Service has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "underwriting"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-041",
+  "title": "Rating Engine Solution Overview",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Underwriting",
+  "author_id": "OWN-007",
+  "created_at": "2023-04-12T09:00:00+00:00",
+  "updated_at": "2024-03-29T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/336490",
+  "text": "# Rating Engine Solution Overview\n\nStatus: Outdated. Last reviewed 2024-03-29. Owner: James O'Connor.\n\n## 1. Purpose\nSolution Overview for the Underwriting domain.\n\n## 2. Architecture overview\n### Rating Engine\nRating Engine is hosted on on-premises Linux servers. Rating Engine stores its data in Rating Engine DB. Rating Engine integrates with Underwriting Workbench using file-batch. Rating Engine integrates with Northwind Customer Hub using file-batch. Rating Engine calls Databricks Lakehouse Lineage API. Rating Engine calls Underwriting Workbench Exposure API.\n\n### Reinsurance Platform\nReinsurance Platform is hosted on on-premises Windows Server. Reinsurance Platform integrates with SAP S/4HANA Finance using point-to-point. Reinsurance Platform calls Databricks Lakehouse Lineage API. Reinsurance Platform calls Third-Party Data Gateway Referral API.\n\n\n## 3. Open issues\n- Capacity planning for Reinsurance Platform is not yet agreed.\n- Resilience testing of Reinsurance Platform has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "underwriting"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-042",
+  "title": "Underwriting Workbench Solution Overview",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Underwriting",
+  "author_id": "OWN-008",
+  "created_at": "2025-01-29T09:00:00+00:00",
+  "updated_at": "2026-01-18T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/789892",
+  "text": "# Underwriting Workbench Solution Overview\n\nStatus: Current. Last reviewed 2026-01-18. Owner: Lucia Fernandez.\n\n## 1. Purpose\nSolution Overview for the Underwriting domain.\n\n## 2. Architecture overview\n### Underwriting Workbench\nUnderwriting Workbench is hosted on on-premises WebSphere. Underwriting Workbench stores its data in Policy Master DB. Underwriting Workbench integrates with Northwind Customer Hub using api. Underwriting Workbench integrates with Renewal Orchestrator using api. Underwriting Workbench integrates with Feature Store using event. Underwriting Workbench integrates with Reinsurance Platform using file-batch.\n\n### Reinsurance Platform\nReinsurance Platform is hosted on on-premises Windows Server. Reinsurance Platform calls Underwriting Workbench Treaty API. Reinsurance Platform calls Third-Party Data Gateway Treaty API. Reinsurance Platform calls Databricks Lakehouse Lineage API. Reinsurance Platform calls Third-Party Data Gateway Referral API. Reinsurance Platform calls Catastrophe Modelling Suite Peril API.\n\n### Rating Engine\nRating Engine is hosted on on-premises Linux servers. Rating Engine integrates with Underwriting Workbench using file-batch. Rating Engine integrates with Northwind Customer Hub using file-batch. Rating Engine calls Underwriting Workbench Treaty API. Rating Engine calls Databricks Lakehouse Lineage API. Rating Engine calls Customer Notification Hub Contact API.\n\n\n## 3. Open issues\n- Capacity planning for Underwriting Workbench is not yet agreed.\n- Resilience testing of Reinsurance Platform has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "underwriting"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-043",
+  "title": "Commission Statement Service Solution Overview",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Billing & Finance",
+  "author_id": "OWN-010",
+  "created_at": "2023-09-01T09:00:00+00:00",
+  "updated_at": "2024-09-07T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/855186",
+  "text": "# Commission Statement Service Solution Overview\n\nStatus: Outdated. Last reviewed 2024-09-07. Owner: Thomas Becker.\n\n## 1. Purpose\nSolution Overview for the Billing & Finance domain.\n\n## 2. Architecture overview\n### Commission Statement Service\nCommission Statement Service is hosted on on-premises Linux servers. Commission Statement Service integrates with Duck Creek Billing using api. Commission Statement Service integrates with Risk Scoring Service using esb. Commission Statement Service integrates with Third-Party Data Gateway using esb. Commission Statement Service integrates with Customer Master (MDM) using event. Commission Statement Service calls AI Gateway Dataset API.\n\n### General Ledger Reconciler\nGeneral Ledger Reconciler is hosted on Azure App Service. General Ledger Reconciler integrates with Risk Scoring Service using event. General Ledger Reconciler integrates with Facilities & Travel using file-batch. General Ledger Reconciler calls Commission Statement Ledger Entry API. General Ledger Reconciler calls SAP S/4HANA Finance Payment API v2.\n\n\n## 3. Open issues\n- Capacity planning for General Ledger Reconciler is not yet agreed.\n- Resilience testing of Commission Statement Service has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "billing-finance"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-044",
+  "title": "Third-Party Data Gateway Solution Overview",
+  "doc_type": "Confluence",
+  "source": "confluence",
+  "domain": "Underwriting",
+  "author_id": "OWN-007",
+  "created_at": "2025-08-05T09:00:00+00:00",
+  "updated_at": "2026-09-05T09:00:00+00:00",
+  "path": "/wiki/spaces/ARCH/pages/557303",
+  "text": "# Third-Party Data Gateway Solution Overview\n\nStatus: Current. Last reviewed 2026-09-05. Owner: James O'Connor.\n\n## 1. Purpose\nSolution Overview for the Underwriting domain.\n\n## 2. Architecture overview\n### Third-Party Data Gateway\nThird-Party Data Gateway is hosted on Azure AKS. Third-Party Data Gateway integrates with Claims Mainframe Core using event. Third-Party Data Gateway calls Agent Portal Contact API. Third-Party Data Gateway calls Endorsement Insured Party API. Third-Party Data Gateway calls Rating Exposure API. Third-Party Data Gateway calls Rating Referral API.\n\n### Risk Scoring Service\nRisk Scoring Service is hosted on Azure AKS. Risk Scoring Service reads from Rating Engine DB. Risk Scoring Service integrates with Rating Engine using api. Risk Scoring Service integrates with Collections Manager using event. Risk Scoring Service integrates with Marketing Automation using event. Risk Scoring Service calls Underwriting Workbench Treaty API.\n\n### Rating Engine\nRating Engine is hosted on on-premises Linux servers. Rating Engine stores its data in Rating Engine DB. Rating Engine integrates with Northwind Customer Hub using file-batch. Rating Engine integrates with Policy Document Generator using point-to-point. Rating Engine calls Underwriting Workbench Treaty API. Rating Engine calls Databricks Lakehouse Lineage API.\n\n### Catastrophe Modelling Suite\nCatastrophe Modelling Suite is hosted on on-premises Windows Server. Catastrophe Modelling Suite stores its data in Reinsurance & Cat DB. Catastrophe Modelling Suite integrates with AI Gateway using api. Catastrophe Modelling Suite integrates with Underwriting Workbench using api. Catastrophe Modelling Suite integrates with Corporate Intranet using api. Catastrophe Modelling Suite calls Rating Exposure API.\n\n\n## 3. Open issues\n- Capacity planning for Risk Scoring Service is not yet agreed.\n- Resilience testing of Third-Party Data Gateway has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "underwriting"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-045",
+  "title": "Underwriting Workbench Architecture Note",
+  "doc_type": "SharePoint",
+  "source": "sharepoint",
+  "domain": "Underwriting",
+  "author_id": "OWN-008",
+  "created_at": "2026-05-07T09:00:00+00:00",
+  "updated_at": "2026-09-05T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/underwriting-workbench-architecture-note.docx",
+  "text": "# Underwriting Workbench Architecture Note\n\nStatus: Current. Last reviewed 2026-09-05. Owner: James O'Connor.\n\n## 1. Purpose\nArchitecture Note for the Underwriting domain.\n\n## 2. Architecture overview\n### Underwriting Workbench\nUnderwriting Workbench is hosted on on-premises WebSphere. Underwriting Workbench stores its data in Policy Master DB. Underwriting Workbench integrates with Northwind Customer Hub using api. Underwriting Workbench integrates with Feature Store using event. Underwriting Workbench integrates with Reinsurance Platform using file-batch. Underwriting Workbench integrates with Product Catalog Service using file-batch.\n\n### Risk Scoring Service\nRisk Scoring Service is hosted on Azure AKS. Risk Scoring Service stores its data in Risk Scoring DB. Risk Scoring Service reads from Rating Engine DB. Risk Scoring Service integrates with Rating Engine using api. Risk Scoring Service integrates with Reinsurance Platform using api. Risk Scoring Service integrates with Collections Manager using event.\n\n\n## 3. Open issues\n- Capacity planning for Risk Scoring Service is not yet agreed.\n- Resilience testing of Underwriting Workbench has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "underwriting"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-046",
+  "title": "Collections Manager Architecture Note",
+  "doc_type": "SharePoint",
+  "source": "sharepoint",
+  "domain": "Billing & Finance",
+  "author_id": "OWN-009",
+  "created_at": "2025-04-19T09:00:00+00:00",
+  "updated_at": "2026-04-28T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/collections-manager-architecture-note.docx",
+  "text": "# Collections Manager Architecture Note\n\nStatus: Current. Last reviewed 2026-04-28. Owner: Hannah Müller.\n\n## 1. Purpose\nArchitecture Note for the Billing & Finance domain.\n\n## 2. Architecture overview\n### Collections Manager\nCollections Manager is hosted on on-premises Linux servers. Collections Manager integrates with Agent Commission Engine using point-to-point. Collections Manager reads from Duck Creek Billing DB. Collections Manager integrates with Payment Gateway Service using api. Collections Manager integrates with Adjuster Mobile App using event. Collections Manager calls Payment Gateway Reconciliation API.\n\n### Treasury Workstation\nTreasury Workstation is hosted on on-premises Windows Server. Treasury Workstation stores its data in Treasury Workstation DB. Treasury Workstation calls Commission Statement Tax API. Treasury Workstation calls Databricks Lakehouse Lineage API.\n\n### SAP S/4HANA Finance\nSAP S/4HANA Finance is hosted on on-premises Linux servers. SAP S/4HANA Finance calls Payment Gateway Reconciliation API v3. SAP S/4HANA Finance calls Claims Notification Claim Document API. SAP S/4HANA Finance calls Collections Invoice API. SAP S/4HANA Finance calls General Ledger Reconciler Invoice API.\n\n### Duck Creek Billing\nDuck Creek Billing is hosted on on-premises Windows Server. Duck Creek Billing integrates with Treasury Workstation using api. Duck Creek Billing calls Treasury Workstation Invoice API.\n\n\n## 3. Open issues\n- Capacity planning for Treasury Workstation is not yet agreed.\n- Resilience testing of Treasury Workstation has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "billing-finance"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-047",
+  "title": "Duck Creek Billing Architecture Note",
+  "doc_type": "SharePoint",
+  "source": "sharepoint",
+  "domain": "Billing & Finance",
+  "author_id": "OWN-011",
+  "created_at": "2024-11-08T09:00:00+00:00",
+  "updated_at": "2025-02-23T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/duck-creek-billing-architecture-note.docx",
+  "text": "# Duck Creek Billing Architecture Note\n\nStatus: Outdated. Last reviewed 2025-02-23. Owner: Thomas Becker.\n\n## 1. Purpose\nArchitecture Note for the Billing & Finance domain.\n\n## 2. Architecture overview\n### Duck Creek Billing\nDuck Creek Billing is hosted on on-premises Windows Server. Duck Creek Billing stores its data in Duck Creek Billing DB. Duck Creek Billing integrates with Treasury Workstation using api.\n\n### Tax Engine\nTax Engine is hosted on the vendor-hosted SaaS tenant. Tax Engine calls Commission Statement Ledger Entry API. Tax Engine calls Payment Gateway Reconciliation API. Tax Engine calls Duck Creek Billing Tax API. Tax Engine calls SAP S/4HANA Finance Statement API. Tax Engine calls Commission Statement Statement API.\n\n### SAP ECC\nSAP ECC is hosted on on-premises Linux servers. SAP ECC stores its data in SAP ECC Database. SAP ECC integrates with Customer Self-Service Portal using file-batch. SAP ECC integrates with Identity Platform using point-to-point. SAP ECC integrates with General Ledger Reconciler using point-to-point. SAP ECC calls Payment Gateway Payment API.\n\n\n## 3. Open issues\n- Capacity planning for Duck Creek Billing is not yet agreed.\n- Resilience testing of SAP ECC has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "billing-finance"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-048",
+  "title": "Legacy Integration Bus Architecture Note",
+  "doc_type": "SharePoint",
+  "source": "sharepoint",
+  "domain": "Integration & Platform",
+  "author_id": "OWN-020",
+  "created_at": "2026-06-04T09:00:00+00:00",
+  "updated_at": "2026-07-15T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/legacy-integration-bus-architecture-note.docx",
+  "text": "# Legacy Integration Bus Architecture Note\n\nStatus: Current. Last reviewed 2026-07-15. Owner: Sofia Rossi.\n\n## 1. Purpose\nArchitecture Note for the Integration & Platform domain.\n\n## 2. Architecture overview\n### Legacy Integration Bus\nLegacy Integration Bus is hosted on on-premises WebSphere. Legacy Integration Bus calls Secrets & Key Management Subscription API. Legacy Integration Bus calls Azure API Management Identity API. Legacy Integration Bus calls Treasury Workstation Ledger Entry API. Legacy Integration Bus calls Azure OpenAI Metric API.\n\n### File Transfer Gateway\nFile Transfer Gateway is hosted on on-premises Windows Server. File Transfer Gateway calls Secrets & Key Management Subscription API. File Transfer Gateway calls Azure API Management Alert API. File Transfer Gateway calls Azure API Management Identity API. File Transfer Gateway calls SAP S/4HANA Finance Statement API.\n\n### Identity Platform\nIdentity Platform is hosted on the vendor-hosted SaaS tenant. Identity Platform calls Secrets & Key Management Alert API. Identity Platform calls Risk Scoring Risk API. Identity Platform calls Underwriting Workbench Exposure API. Identity Platform calls Claims Payments Hub Subrogation API. Identity Platform calls Kafka Event Alert API.\n\n\n## 3. Open issues\n- Capacity planning for Identity Platform is not yet agreed.\n- Resilience testing of File Transfer Gateway has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "integration-platform"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-049",
+  "title": "Claims Copilot Architecture Note",
+  "doc_type": "SharePoint",
+  "source": "sharepoint",
+  "domain": "Claims",
+  "author_id": "OWN-023",
+  "created_at": "2025-05-23T09:00:00+00:00",
+  "updated_at": "2025-10-21T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/claims-copilot-architecture-note.docx",
+  "text": "# Claims Copilot Architecture Note\n\nStatus: Current. Last reviewed 2025-10-21. Owner: Victor Alvarez.\n\n## 1. Purpose\nArchitecture Note for the Claims domain.\n\n## 2. Architecture overview\n### Claims Copilot\nClaims Copilot is hosted on Azure App Service. Claims Copilot integrates with Payment Gateway Service using esb. Claims Copilot integrates with Payroll Integration Service using file-batch. Claims Copilot integrates with Customer Notification Hub using point-to-point. Claims Copilot calls Adjuster Mobile App Coverage API. Claims Copilot calls Claims Notification Settlement API.\n\n### Claims Analytics Mart\nClaims Analytics Mart is hosted on the vendor-hosted SaaS tenant. Claims Analytics Mart integrates with Salesforce CRM using esb. Claims Analytics Mart integrates with Payroll Integration Service using esb. Claims Analytics Mart integrates with Feature Store using event. Claims Analytics Mart integrates with Catastrophe Modelling Suite using file-batch. Claims Analytics Mart integrates with Feature Store using point-to-point.\n\n### Claims Payments Hub\nClaims Payments Hub is hosted on Azure App Service. Claims Payments Hub integrates with Claims Mainframe Core using point-to-point. Claims Payments Hub reads from Policy Master DB. Claims Payments Hub integrates with Customer Master (MDM) using esb. Claims Payments Hub integrates with Subrogation Tracker using event. Claims Payments Hub integrates with Risk Scoring Service using event.\n\n### Salvage & Recovery Service\nSalvage & Recovery Service is hosted on Azure AKS. Salvage & Recovery Service stores its data in Salvage & Recovery DB. Salvage & Recovery Service integrates with Endorsement Engine using api. Salvage & Recovery Service integrates with Workday HCM using event. Salvage & Recovery Service integrates with Commission Statement Service using file-batch. Salvage & Recovery Service calls Claims Notification Settlement API.\n\n\n## 3. Open issues\n- Capacity planning for Claims Copilot is not yet agreed.\n- Resilience testing of Claims Payments Hub has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "claims"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-050",
+  "title": "Rating Engine Architecture Note",
+  "doc_type": "SharePoint",
+  "source": "sharepoint",
+  "domain": "Underwriting",
+  "author_id": "OWN-007",
+  "created_at": "2025-09-13T09:00:00+00:00",
+  "updated_at": "2026-03-27T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/rating-engine-architecture-note.docx",
+  "text": "# Rating Engine Architecture Note\n\nStatus: Current. Last reviewed 2026-03-27. Owner: James O'Connor.\n\n## 1. Purpose\nArchitecture Note for the Underwriting domain.\n\n## 2. Architecture overview\n### Rating Engine\nRating Engine is hosted on on-premises Linux servers. Rating Engine stores its data in Rating Engine DB. Rating Engine integrates with Underwriting Workbench using file-batch. Rating Engine integrates with Policy Document Generator using point-to-point. Rating Engine calls Databricks Lakehouse Lineage API. Rating Engine calls Underwriting Workbench Exposure API.\n\n### Underwriting Workbench\nUnderwriting Workbench is hosted on on-premises WebSphere. Underwriting Workbench stores its data in Policy Master DB. Underwriting Workbench integrates with Northwind Customer Hub using api. Underwriting Workbench integrates with Renewal Orchestrator using api. Underwriting Workbench integrates with Reinsurance Platform using file-batch. Underwriting Workbench integrates with Product Catalog Service using file-batch.\n\n### Reinsurance Platform\nReinsurance Platform is hosted on on-premises Windows Server. Reinsurance Platform stores its data in Reinsurance & Cat DB. Reinsurance Platform integrates with Rating Engine using api. Reinsurance Platform integrates with SAP S/4HANA Finance using point-to-point. Reinsurance Platform calls Databricks Lakehouse Lineage API. Reinsurance Platform calls Third-Party Data Gateway Referral API.\n\n\n## 3. Open issues\n- Capacity planning for Rating Engine is not yet agreed.\n- Resilience testing of Rating Engine has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "underwriting"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-051",
+  "title": "Azure API Management Context Diagram",
+  "doc_type": "diagram",
+  "source": "sharepoint",
+  "domain": "Integration & Platform",
+  "author_id": "OWN-019",
+  "created_at": "2026-02-18T09:00:00+00:00",
+  "updated_at": "2026-09-06T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/azure-api-management-context-diagram.docx",
+  "text": "# Azure API Management Context Diagram\n\nStatus: Current. Last reviewed 2026-09-06. Owner: Noah Williams.\n\n## 1. Purpose\nContext Diagram for the Integration & Platform domain.\n\n## 2. Architecture overview\n### Azure API Management\nAzure API Management is hosted on Azure AKS.\n\n### Legacy Integration Bus\nLegacy Integration Bus is hosted on on-premises WebSphere. Legacy Integration Bus calls Risk Scoring Risk API. Legacy Integration Bus calls Azure API Management Identity API. Legacy Integration Bus calls Treasury Workstation Ledger Entry API. Legacy Integration Bus calls Azure OpenAI Metric API.\n\n### ServiceNow\nServiceNow is hosted on the vendor-hosted SaaS tenant. ServiceNow integrates with Secrets & Key Management using api. ServiceNow integrates with Claims Payments Hub using esb. ServiceNow integrates with Northwind Customer Hub using file-batch. ServiceNow calls Secrets & Key Management Alert API. ServiceNow calls Secrets & Key Management Ticket API.\n\n\n## 3. Open issues\n- Capacity planning for Azure API Management is not yet agreed.\n- Resilience testing of Azure API Management has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "integration-platform"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-052",
+  "title": "Databricks Lakehouse Context Diagram",
+  "doc_type": "diagram",
+  "source": "sharepoint",
+  "domain": "Data & Analytics",
+  "author_id": "OWN-015",
+  "created_at": "2025-09-27T09:00:00+00:00",
+  "updated_at": "2026-05-22T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/databricks-lakehouse-context-diagram.docx",
+  "text": "# Databricks Lakehouse Context Diagram\n\nStatus: Current. Last reviewed 2026-05-22. Owner: Olivia Brennan.\n\n## 1. Purpose\nContext Diagram for the Data & Analytics domain.\n\n## 2. Architecture overview\n### Databricks Lakehouse\nDatabricks Lakehouse is hosted on Azure AKS. Databricks Lakehouse stores its data in Lakehouse Raw Zone. Databricks Lakehouse integrates with AI Gateway using api. Databricks Lakehouse calls Feature Store Model API. Databricks Lakehouse calls AI Gateway Metric API. Databricks Lakehouse calls Power BI Prompt API.\n\n### Enterprise Data Warehouse\nEnterprise Data Warehouse is hosted on on-premises Linux servers. Enterprise Data Warehouse stores its data in Enterprise DW. Enterprise Data Warehouse calls Secrets & Key Management Subscription API. Enterprise Data Warehouse calls Databricks Lakehouse Feature API. Enterprise Data Warehouse calls AI Gateway Metric API. Enterprise Data Warehouse calls Azure OpenAI Metric API.\n\n\n## 3. Open issues\n- Capacity planning for Databricks Lakehouse is not yet agreed.\n- Resilience testing of Enterprise Data Warehouse has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "data-analytics"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-053",
+  "title": "Customer 360 Service Context Diagram",
+  "doc_type": "diagram",
+  "source": "sharepoint",
+  "domain": "Data & Analytics",
+  "author_id": "OWN-016",
+  "created_at": "2026-06-07T09:00:00+00:00",
+  "updated_at": "2026-10-04T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/customer-360-service-context-diagram.docx",
+  "text": "# Customer 360 Service Context Diagram\n\nStatus: Current. Last reviewed 2026-10-04. Owner: Olivia Brennan.\n\n## 1. Purpose\nContext Diagram for the Data & Analytics domain.\n\n## 2. Architecture overview\n### Customer 360 Service\nCustomer 360 Service is hosted on Azure AKS. Customer 360 Service reads from Customer Hub DB. Customer 360 Service integrates with Snowflake Data Cloud using api. Customer 360 Service integrates with Product Catalog Service using api. Customer 360 Service integrates with Policy Admin Core using api. Customer 360 Service integrates with Risk Scoring Service using event.\n\n### Databricks Lakehouse\nDatabricks Lakehouse is hosted on Azure AKS. Databricks Lakehouse stores its data in Lakehouse Raw Zone. Databricks Lakehouse integrates with Azure OpenAI Platform using api. Databricks Lakehouse integrates with Facilities & Travel using file-batch. Databricks Lakehouse integrates with Customer Notification Hub using point-to-point. Databricks Lakehouse calls Azure OpenAI Lineage API.\n\n### Power BI Service\nPower BI Service is hosted on the vendor-hosted SaaS tenant. Power BI Service reads from Claims Document Vault DB. Power BI Service integrates with Customer 360 Service using api. Power BI Service integrates with Databricks Lakehouse using api. Power BI Service calls Feature Store Model API. Power BI Service calls SAP ECC Payment API.\n\n\n## 3. Open issues\n- Capacity planning for Power BI Service is not yet agreed.\n- Resilience testing of Customer 360 Service has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "data-analytics"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-054",
+  "title": "Workday HCM Context Diagram",
+  "doc_type": "diagram",
+  "source": "sharepoint",
+  "domain": "Corporate Services",
+  "author_id": "OWN-025",
+  "created_at": "2025-07-05T09:00:00+00:00",
+  "updated_at": "2026-06-01T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/workday-hcm-context-diagram.docx",
+  "text": "# Workday HCM Context Diagram\n\nStatus: Current. Last reviewed 2026-06-01. Owner: Grace Liu.\n\n## 1. Purpose\nContext Diagram for the Corporate Services domain.\n\n## 2. Architecture overview\n### Workday HCM\nWorkday HCM is hosted on the vendor-hosted SaaS tenant. Workday HCM integrates with Consent & Preference Manager using api. Workday HCM integrates with Commission Statement Service using api. Workday HCM integrates with Payroll Integration Service using api. Workday HCM calls Consent & Preference Preference API. Workday HCM calls Corporate Intranet Employee API.\n\n### Corporate Intranet\nCorporate Intranet is hosted on on-premises Windows Server. Corporate Intranet stores its data in Intranet Content DB. Corporate Intranet reads from Customer Hub DB. Corporate Intranet integrates with Claims Intake Portal using file-batch. Corporate Intranet calls Payroll Integration Legal Matter API. Corporate Intranet calls MuleSoft Anypoint Alert API v3.\n\n\n## 3. Open issues\n- Capacity planning for Corporate Intranet is not yet agreed.\n- Resilience testing of Workday HCM has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "corporate-services"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-055",
+  "title": "Agent Commission Engine Context Diagram",
+  "doc_type": "diagram",
+  "source": "sharepoint",
+  "domain": "Customer & Distribution",
+  "author_id": "OWN-012",
+  "created_at": "2024-08-01T09:00:00+00:00",
+  "updated_at": "2025-06-14T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/agent-commission-engine-context-diagram.docx",
+  "text": "# Agent Commission Engine Context Diagram\n\nStatus: Outdated. Last reviewed 2025-06-14. Owner: Daniel Okafor.\n\n## 1. Purpose\nContext Diagram for the Customer & Distribution domain.\n\n## 2. Architecture overview\n### Agent Commission Engine\nAgent Commission Engine is hosted on on-premises Linux servers. Agent Commission Engine stores its data in Policy Master DB. Agent Commission Engine integrates with Adjuster Mobile App using esb. Agent Commission Engine calls Agent Portal Contact API. Agent Commission Engine calls Customer Master (MDM) Agent API. Agent Commission Engine calls Broker Gateway Campaign API.\n\n### Customer Notification Hub\nCustomer Notification Hub is hosted on Azure AKS. Customer Notification Hub stores its data in Notification State Store. Customer Notification Hub integrates with Subrogation Tracker using esb. Customer Notification Hub integrates with Observability Stack using esb. Customer Notification Hub integrates with Identity Platform using event. Customer Notification Hub integrates with Northwind Customer Hub using event.\n\n\n## 3. Open issues\n- Capacity planning for Customer Notification Hub is not yet agreed.\n- Resilience testing of Customer Notification Hub has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "customer-distribution"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-056",
+  "title": "Facilities & Travel Vendor Architecture Pack",
+  "doc_type": "PDF",
+  "source": "sharepoint",
+  "domain": "Corporate Services",
+  "author_id": "OWN-025",
+  "created_at": "2025-11-26T09:00:00+00:00",
+  "updated_at": "2026-09-19T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/facilities-travel-vendor-architecture-pack.docx",
+  "text": "# Facilities & Travel Vendor Architecture Pack\n\nStatus: Current. Last reviewed 2026-09-19. Owner: Arjun Nambiar.\n\n## 1. Purpose\nVendor Architecture Pack for the Corporate Services domain.\n\n## 2. Architecture overview\n### Facilities & Travel\nFacilities & Travel is hosted on the vendor-hosted SaaS tenant. Facilities & Travel integrates with Salesforce CRM using esb. Facilities & Travel integrates with General Ledger Reconciler using file-batch. Facilities & Travel calls Payroll Integration Legal Matter API v3.\n\n### Corporate Intranet\nCorporate Intranet is hosted on on-premises Windows Server. Corporate Intranet integrates with Claims Intake Portal using file-batch. Corporate Intranet calls Payroll Integration Legal Matter API. Corporate Intranet calls Consent & Preference Broker API. Corporate Intranet calls MuleSoft Anypoint Alert API v3. Corporate Intranet calls Workday HCM Employee API.\n\n### Legal Matter Management\nLegal Matter Management is hosted on the vendor-hosted SaaS tenant. Legal Matter Management calls Agent Commission Agent API. Legal Matter Management calls Payroll Integration Legal Matter API v3.\n\n\n## 3. Open issues\n- Capacity planning for Facilities & Travel is not yet agreed.\n- Resilience testing of Legal Matter Management has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "corporate-services"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-057",
+  "title": "Renewal Orchestrator Vendor Architecture Pack",
+  "doc_type": "PDF",
+  "source": "sharepoint",
+  "domain": "Policy Admin",
+  "author_id": "OWN-005",
+  "created_at": "2025-03-02T09:00:00+00:00",
+  "updated_at": "2025-07-23T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/renewal-orchestrator-vendor-architecture-pack.docx",
+  "text": "# Renewal Orchestrator Vendor Architecture Pack\n\nStatus: Outdated. Last reviewed 2025-07-23. Owner: Marcus Chen.\n\n## 1. Purpose\nVendor Architecture Pack for the Policy Admin domain.\n\n## 2. Architecture overview\n### Renewal Orchestrator\nRenewal Orchestrator is hosted on Azure AKS. Renewal Orchestrator stores its data in Renewal Orchestrator DB. Renewal Orchestrator integrates with Policy Admin Core using api. Renewal Orchestrator integrates with Secrets & Key Management using event. Renewal Orchestrator calls Policy Search Quote API. Renewal Orchestrator calls Secrets & Key Management Subscription API.\n\n### Policy Quote Portal\nPolicy Quote Portal is hosted on Azure App Service. Policy Quote Portal calls Product Catalog Product API. Policy Quote Portal calls Policy Document Generator Policy API v2. Policy Quote Portal calls Renewal Orchestrator Policy Document API v3. Policy Quote Portal calls Endorsement Quote API. Policy Quote Portal calls Product Catalog Policy API.\n\n\n## 3. Open issues\n- Capacity planning for Policy Quote Portal is not yet agreed.\n- Resilience testing of Policy Quote Portal has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "policy-admin"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-058",
+  "title": "Customer 360 Service Vendor Architecture Pack",
+  "doc_type": "PDF",
+  "source": "sharepoint",
+  "domain": "Data & Analytics",
+  "author_id": "OWN-016",
+  "created_at": "2024-09-16T09:00:00+00:00",
+  "updated_at": "2025-04-01T09:00:00+00:00",
+  "path": "/sites/Architecture/Shared Documents/customer-360-service-vendor-architecture-pack.docx",
+  "text": "# Customer 360 Service Vendor Architecture Pack\n\nStatus: Outdated. Last reviewed 2025-04-01. Owner: Kenji Tanaka.\n\n## 1. Purpose\nVendor Architecture Pack for the Data & Analytics domain.\n\n## 2. Architecture overview\n### Customer 360 Service\nCustomer 360 Service is hosted on Azure AKS. Customer 360 Service reads from Customer Hub DB. Customer 360 Service integrates with Product Catalog Service using api. Customer 360 Service integrates with Policy Admin Core using api. Customer 360 Service integrates with SAP S/4HANA Finance using esb. Customer 360 Service integrates with Risk Scoring Service using event.\n\n### Snowflake Data Cloud\nSnowflake Data Cloud is hosted on the vendor-hosted SaaS tenant. Snowflake Data Cloud integrates with Agent Portal using esb. Snowflake Data Cloud calls Feature Store Model API. Snowflake Data Cloud calls AI Gateway Metric API. Snowflake Data Cloud calls Power BI Prompt API. Snowflake Data Cloud calls Customer 360 Prompt API.\n\n\n## 3. Open issues\n- Capacity planning for Customer 360 Service is not yet agreed.\n- Resilience testing of Customer 360 Service has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "data-analytics"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-059",
+  "title": "Risk Scoring Service Service README",
+  "doc_type": "README",
+  "source": "git",
+  "domain": "Underwriting",
+  "author_id": "OWN-007",
+  "created_at": "2022-11-27T09:00:00+00:00",
+  "updated_at": "2023-09-19T09:00:00+00:00",
+  "path": "northwind/architecture-docs/risk-scoring-service-service-readme.md",
+  "text": "# Risk Scoring Service\n\n```\nDB_HOST=policy-master-db.nwa.internal\n```\n\n# Risk Scoring Service Service README\n\nStatus: Outdated. Last reviewed 2023-09-19. Owner: Lucia Fernandez.\n\n## 1. Purpose\nService README for the Underwriting domain.\n\n## 2. Architecture overview\n### Risk Scoring Service\nRisk Scoring Service is hosted on Azure AKS. Risk Scoring Service stores its data in Risk Scoring DB. Risk Scoring Service integrates with Claims Copilot using api. Risk Scoring Service integrates with Reinsurance Platform using api. Risk Scoring Service integrates with Collections Manager using event. Risk Scoring Service integrates with Marketing Automation using event.\n\n### Third-Party Data Gateway\nThird-Party Data Gateway is hosted on Azure AKS. Third-Party Data Gateway integrates with Catastrophe Modelling Suite using event. Third-Party Data Gateway integrates with Claims Mainframe Core using event. Third-Party Data Gateway calls Risk Scoring Risk API. Third-Party Data Gateway calls Rating Exposure API. Third-Party Data Gateway calls Rating Referral API.\n\n### Catastrophe Modelling Suite\nCatastrophe Modelling Suite is hosted on on-premises Windows Server. Catastrophe Modelling Suite stores its data in Reinsurance & Cat DB. Catastrophe Modelling Suite integrates with AI Gateway using api. Catastrophe Modelling Suite integrates with Corporate Intranet using api. Catastrophe Modelling Suite calls Rating Exposure API. Catastrophe Modelling Suite calls Risk Scoring Rate API.\n\n\n## 3. Open issues\n- Capacity planning for Risk Scoring Service is not yet agreed.\n- Resilience testing of Third-Party Data Gateway has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "underwriting"
+  ],
+  "adr": null
+ },
+ {
+  "id": "DOC-060",
+  "title": "Identity Platform Service README",
+  "doc_type": "README",
+  "source": "git",
+  "domain": "Integration & Platform",
+  "author_id": "OWN-018",
+  "created_at": "2025-08-21T09:00:00+00:00",
+  "updated_at": "2026-04-24T09:00:00+00:00",
+  "path": "northwind/architecture-docs/identity-platform-service-readme.md",
+  "text": "# Identity Platform\n\n```\nDB_HOST=policy-master-db.nwa.internal\n```\n\n# Identity Platform Service README\n\nStatus: Current. Last reviewed 2026-04-24. Owner: Rahul Mehta.\n\n## 1. Purpose\nService README for the Integration & Platform domain.\n\n## 2. Architecture overview\n### Identity Platform\nIdentity Platform is hosted on the vendor-hosted SaaS tenant. Identity Platform calls Policy Admin Renewal API. Identity Platform calls Claims Payments Hub Subrogation API. Identity Platform calls Kafka Event Identity API.\n\n### Kafka Event Platform\nKafka Event Platform is hosted on Azure AKS. Kafka Event Platform calls Azure API Management Token API.\n\n### File Transfer Gateway\nFile Transfer Gateway is hosted on on-premises Windows Server. File Transfer Gateway stores its data in MFT Transfer Registry. File Transfer Gateway calls Customer Notification Hub Campaign API. File Transfer Gateway calls Secrets & Key Management Subscription API. File Transfer Gateway calls Azure API Management Alert API. File Transfer Gateway calls Azure API Management Identity API.\n\n\n## 3. Open issues\n- Capacity planning for Kafka Event Platform is not yet agreed.\n- Resilience testing of Kafka Event Platform has not been repeated since the last release.\n- Interface ownership between domains should be confirmed with the design authority.",
+  "tags": [
+   "integration-platform"
+  ],
+  "adr": null
+ }
+]

@@ -1,0 +1,218 @@
+[
+ {
+  "id": "CAP-CLM",
+  "name": "Claims Management",
+  "parent": null,
+  "level": 1
+ },
+ {
+  "id": "CAP-UW",
+  "name": "Underwriting",
+  "parent": null,
+  "level": 1
+ },
+ {
+  "id": "CAP-POL",
+  "name": "Policy Administration",
+  "parent": null,
+  "level": 1
+ },
+ {
+  "id": "CAP-BIL",
+  "name": "Billing & Collections",
+  "parent": null,
+  "level": 1
+ },
+ {
+  "id": "CAP-CUS",
+  "name": "Customer & Distribution",
+  "parent": null,
+  "level": 1
+ },
+ {
+  "id": "CAP-FIN",
+  "name": "Finance & Reporting",
+  "parent": null,
+  "level": 1
+ },
+ {
+  "id": "CAP-DAT",
+  "name": "Data & Insight",
+  "parent": null,
+  "level": 1
+ },
+ {
+  "id": "CAP-COR",
+  "name": "Corporate Services",
+  "parent": null,
+  "level": 1
+ },
+ {
+  "id": "CAP-CLM-FNOL",
+  "name": "First Notice of Loss",
+  "parent": "CAP-CLM",
+  "level": 2
+ },
+ {
+  "id": "CAP-CLM-ADJ",
+  "name": "Claims Adjudication",
+  "parent": "CAP-CLM",
+  "level": 2
+ },
+ {
+  "id": "CAP-CLM-PAY",
+  "name": "Claims Payments",
+  "parent": "CAP-CLM",
+  "level": 2
+ },
+ {
+  "id": "CAP-CLM-FRD",
+  "name": "Fraud Detection",
+  "parent": "CAP-CLM",
+  "level": 2
+ },
+ {
+  "id": "CAP-UW-RSK",
+  "name": "Risk Assessment",
+  "parent": "CAP-UW",
+  "level": 2
+ },
+ {
+  "id": "CAP-UW-PRC",
+  "name": "Pricing & Rating",
+  "parent": "CAP-UW",
+  "level": 2
+ },
+ {
+  "id": "CAP-UW-REI",
+  "name": "Reinsurance",
+  "parent": "CAP-UW",
+  "level": 2
+ },
+ {
+  "id": "CAP-POL-ISS",
+  "name": "Policy Issuance",
+  "parent": "CAP-POL",
+  "level": 2
+ },
+ {
+  "id": "CAP-POL-END",
+  "name": "Endorsements & Renewals",
+  "parent": "CAP-POL",
+  "level": 2
+ },
+ {
+  "id": "CAP-POL-DOC",
+  "name": "Policy Documents",
+  "parent": "CAP-POL",
+  "level": 2
+ },
+ {
+  "id": "CAP-BIL-INV",
+  "name": "Invoicing",
+  "parent": "CAP-BIL",
+  "level": 2
+ },
+ {
+  "id": "CAP-BIL-COL",
+  "name": "Collections",
+  "parent": "CAP-BIL",
+  "level": 2
+ },
+ {
+  "id": "CAP-CUS-MDM",
+  "name": "Customer Master",
+  "parent": "CAP-CUS",
+  "level": 2
+ },
+ {
+  "id": "CAP-CUS-ENG",
+  "name": "Customer Engagement",
+  "parent": "CAP-CUS",
+  "level": 2
+ },
+ {
+  "id": "CAP-CUS-DST",
+  "name": "Distribution & Agents",
+  "parent": "CAP-CUS",
+  "level": 2
+ },
+ {
+  "id": "CAP-FIN-GL",
+  "name": "General Ledger",
+  "parent": "CAP-FIN",
+  "level": 2
+ },
+ {
+  "id": "CAP-FIN-REP",
+  "name": "Regulatory Reporting",
+  "parent": "CAP-FIN",
+  "level": 2
+ },
+ {
+  "id": "CAP-DAT-ANL",
+  "name": "Analytics & BI",
+  "parent": "CAP-DAT",
+  "level": 2
+ },
+ {
+  "id": "CAP-DAT-AI",
+  "name": "AI & Automation",
+  "parent": "CAP-DAT",
+  "level": 2
+ },
+ {
+  "id": "CAP-COR-HR",
+  "name": "People & Payroll",
+  "parent": "CAP-COR",
+  "level": 2
+ },
+ {
+  "id": "CAP-COR-ITSM",
+  "name": "IT Service Management",
+  "parent": "CAP-COR",
+  "level": 2
+ },
+ {
+  "id": "CAP-CLM-FNOL-CHN",
+  "name": "Claim Intake Channels",
+  "parent": "CAP-CLM-FNOL",
+  "level": 3
+ },
+ {
+  "id": "CAP-CLM-ADJ-COV",
+  "name": "Coverage Verification",
+  "parent": "CAP-CLM-ADJ",
+  "level": 3
+ },
+ {
+  "id": "CAP-CLM-ADJ-SET",
+  "name": "Settlement Negotiation",
+  "parent": "CAP-CLM-ADJ",
+  "level": 3
+ },
+ {
+  "id": "CAP-CLM-PAY-DSB",
+  "name": "Payment Disbursement",
+  "parent": "CAP-CLM-PAY",
+  "level": 3
+ },
+ {
+  "id": "CAP-UW-PRC-RTE",
+  "name": "Rate Calculation",
+  "parent": "CAP-UW-PRC",
+  "level": 3
+ },
+ {
+  "id": "CAP-CUS-MDM-IDR",
+  "name": "Identity Resolution",
+  "parent": "CAP-CUS-MDM",
+  "level": 3
+ },
+ {
+  "id": "CAP-CUS-MDM-CON",
+  "name": "Consent & Privacy",
+  "parent": "CAP-CUS-MDM",
+  "level": 3
+ }
+]

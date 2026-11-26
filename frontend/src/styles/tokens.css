@@ -1,0 +1,58 @@
+/* ArchIQ design tokens. Colors are space-separated RGB triplets so Tailwind can apply alpha. */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: 11 13 18; /* #0B0D12 */
+  --surface: 17 20 27; /* #11141B */
+  --raised: 23 27 36; /* #171B24 */
+  --overlay: 28 33 44;
+  --border: 34 40 54; /* #222836 */
+  --border-subtle: 26 31 43; /* #1A1F2B */
+  --fg: 230 233 240; /* #E6E9F0 */
+  --fg-2: 154 163 181; /* #9AA3B5 */
+  --fg-3: 123 133 153; /* muted, lifted slightly from #667085 to clear WCAG AA (5.2:1) */
+  --accent: 110 123 255; /* #6E7BFF */
+  --accent-2: 139 92 246; /* #8B5CF6 */
+  --accent-fg: 255 255 255;
+  --critical: 240 75 91;
+  --high: 245 158 11;
+  --medium: 234 179 8;
+  --low: 96 165 250;
+  --healthy: 34 197 94;
+  --grid-line: 255 255 255;
+  --grid-alpha: 0.025;
+  --scrim: 5 6 9;
+  --select-bg: 110 123 255 / 0.35;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: 246 247 249;
+  --surface: 255 255 255;
+  --raised: 241 243 246;
+  --overlay: 255 255 255;
+  --border: 221 225 232;
+  --border-subtle: 232 235 240;
+  --fg: 17 20 27;
+  --fg-2: 75 85 101;
+  --fg-3: 91 101 121; /* darkened from #667085: 4.47:1 on the raised surface missed AA */
+  --accent: 67 78 214;
+  --accent-2: 124 58 237;
+  --accent-fg: 255 255 255;
+  --critical: 190 31 54;
+  --high: 163 74 7;
+  --medium: 135 81 4;
+  --low: 29 78 216;
+  --healthy: 19 111 54;
+  --grid-line: 17 20 27;
+  --grid-alpha: 0.035;
+  --scrim: 17 20 27;
+  --select-bg: 79 91 232 / 0.22;
+}
+
+:root {
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --sidebar-w: 248px;
+  --sidebar-w-collapsed: 60px;
+  --topbar-h: 52px;
+}

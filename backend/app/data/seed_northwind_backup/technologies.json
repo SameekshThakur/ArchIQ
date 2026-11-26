@@ -1,0 +1,302 @@
+[
+ {
+  "name": "Java 8",
+  "category": "runtime",
+  "lifecycle": "extended",
+  "support_end": "2030-12"
+ },
+ {
+  "name": "Java 11",
+  "category": "runtime",
+  "lifecycle": "supported",
+  "support_end": "2032-01"
+ },
+ {
+  "name": "Java 17",
+  "category": "runtime",
+  "lifecycle": "supported",
+  "support_end": "2029-09"
+ },
+ {
+  "name": ".NET Framework 4.8",
+  "category": "runtime",
+  "lifecycle": "supported",
+  "support_end": "2032-01"
+ },
+ {
+  "name": ".NET 6",
+  "category": "runtime",
+  "lifecycle": "eol",
+  "support_end": "2024-11"
+ },
+ {
+  "name": ".NET 8",
+  "category": "runtime",
+  "lifecycle": "supported",
+  "support_end": "2026-11"
+ },
+ {
+  "name": "Python 3.11",
+  "category": "runtime",
+  "lifecycle": "supported",
+  "support_end": "2027-10"
+ },
+ {
+  "name": "Node.js 18",
+  "category": "runtime",
+  "lifecycle": "eol",
+  "support_end": "2025-04"
+ },
+ {
+  "name": "Node.js 20",
+  "category": "runtime",
+  "lifecycle": "supported",
+  "support_end": "2026-04"
+ },
+ {
+  "name": "React 18",
+  "category": "framework",
+  "lifecycle": "supported",
+  "support_end": "2027-12"
+ },
+ {
+  "name": "Spring Boot 2.7",
+  "category": "framework",
+  "lifecycle": "eol",
+  "support_end": "2023-11"
+ },
+ {
+  "name": "Spring Boot 3",
+  "category": "framework",
+  "lifecycle": "supported",
+  "support_end": "2027-05"
+ },
+ {
+  "name": "Oracle 12c",
+  "category": "database",
+  "lifecycle": "eol",
+  "support_end": "2022-07"
+ },
+ {
+  "name": "Oracle 19c",
+  "category": "database",
+  "lifecycle": "supported",
+  "support_end": "2027-04"
+ },
+ {
+  "name": "SQL Server 2014",
+  "category": "database",
+  "lifecycle": "eol",
+  "support_end": "2024-07"
+ },
+ {
+  "name": "SQL Server 2019",
+  "category": "database",
+  "lifecycle": "supported",
+  "support_end": "2030-01"
+ },
+ {
+  "name": "PostgreSQL 14",
+  "category": "database",
+  "lifecycle": "supported",
+  "support_end": "2026-11"
+ },
+ {
+  "name": "PostgreSQL 15",
+  "category": "database",
+  "lifecycle": "supported",
+  "support_end": "2027-11"
+ },
+ {
+  "name": "DB2 z/OS",
+  "category": "database",
+  "lifecycle": "extended",
+  "support_end": "2029-04"
+ },
+ {
+  "name": "Teradata 15",
+  "category": "database",
+  "lifecycle": "extended",
+  "support_end": "2027-06"
+ },
+ {
+  "name": "MongoDB 4.4",
+  "category": "database",
+  "lifecycle": "eol",
+  "support_end": "2024-02"
+ },
+ {
+  "name": "Elasticsearch 7",
+  "category": "database",
+  "lifecycle": "eol",
+  "support_end": "2023-08"
+ },
+ {
+  "name": "Redis 6",
+  "category": "database",
+  "lifecycle": "supported",
+  "support_end": "2026-12"
+ },
+ {
+  "name": "Snowflake",
+  "category": "data-platform",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Databricks",
+  "category": "data-platform",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Cosmos DB",
+  "category": "database",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Windows Server 2012",
+  "category": "os",
+  "lifecycle": "eol",
+  "support_end": "2023-10"
+ },
+ {
+  "name": "Windows Server 2019",
+  "category": "os",
+  "lifecycle": "supported",
+  "support_end": "2029-01"
+ },
+ {
+  "name": "RHEL 8",
+  "category": "os",
+  "lifecycle": "supported",
+  "support_end": "2029-05"
+ },
+ {
+  "name": "z/OS",
+  "category": "os",
+  "lifecycle": "supported",
+  "support_end": "2030-09"
+ },
+ {
+  "name": "COBOL",
+  "category": "language",
+  "lifecycle": "extended",
+  "support_end": "n/a"
+ },
+ {
+  "name": "AS/400 RPG",
+  "category": "language",
+  "lifecycle": "extended",
+  "support_end": "2028-04"
+ },
+ {
+  "name": "WebSphere 8.5",
+  "category": "middleware",
+  "lifecycle": "eol",
+  "support_end": "2022-04"
+ },
+ {
+  "name": "IBM MQ 9.1",
+  "category": "middleware",
+  "lifecycle": "extended",
+  "support_end": "2026-09"
+ },
+ {
+  "name": "MuleSoft Anypoint",
+  "category": "middleware",
+  "lifecycle": "supported",
+  "support_end": "2027-06"
+ },
+ {
+  "name": "Apache Kafka",
+  "category": "middleware",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Kubernetes 1.27",
+  "category": "platform",
+  "lifecycle": "eol",
+  "support_end": "2024-06"
+ },
+ {
+  "name": "AKS",
+  "category": "platform",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Azure OpenAI",
+  "category": "ai",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "SharePoint Server 2016",
+  "category": "platform",
+  "lifecycle": "extended",
+  "support_end": "2026-07"
+ },
+ {
+  "name": "SAP S/4HANA",
+  "category": "erp",
+  "lifecycle": "supported",
+  "support_end": "2030-12"
+ },
+ {
+  "name": "SAP ECC 6.0",
+  "category": "erp",
+  "lifecycle": "extended",
+  "support_end": "2027-12"
+ },
+ {
+  "name": "Guidewire ClaimCenter 10",
+  "category": "package",
+  "lifecycle": "extended",
+  "support_end": "2026-12"
+ },
+ {
+  "name": "Duck Creek Policy",
+  "category": "package",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Salesforce",
+  "category": "saas",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Terraform",
+  "category": "iac",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "DB2 for i",
+  "category": "database",
+  "lifecycle": "extended",
+  "support_end": "2028-04"
+ },
+ {
+  "name": "SAP HANA",
+  "category": "database",
+  "lifecycle": "supported",
+  "support_end": "2030-12"
+ },
+ {
+  "name": "ADLS Gen2",
+  "category": "storage",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Amazon S3",
+  "category": "storage",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ }
+]

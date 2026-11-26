@@ -1,0 +1,42 @@
+[
+ {
+  "app_id": "APP-008",
+  "db_id": "DB-038"
+ },
+ {
+  "app_id": "APP-050",
+  "db_id": "DB-038"
+ },
+ {
+  "app_id": "APP-050",
+  "db_id": "DB-039"
+ },
+ {
+  "app_id": "APP-033",
+  "db_id": "DB-039"
+ },
+ {
+  "app_id": "APP-052",
+  "db_id": "DB-040"
+ },
+ {
+  "app_id": "APP-048",
+  "db_id": "DB-041"
+ },
+ {
+  "app_id": "APP-048",
+  "db_id": "DB-042"
+ },
+ {
+  "app_id": "APP-006",
+  "db_id": "DB-043"
+ },
+ {
+  "app_id": "APP-018",
+  "db_id": "DB-044"
+ },
+ {
+  "app_id": "APP-004",
+  "db_id": "DB-003"
+ }
+]

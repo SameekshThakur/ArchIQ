@@ -1,0 +1,61 @@
+[
+ {
+  "id": "ARB-2026-001",
+  "title": "Claims Notification Service on Azure",
+  "domain": "Claims",
+  "submitter": "Claims Platform Engineering",
+  "submitter_id": "OWN-001",
+  "stage": "ai_reviewed",
+  "submitted_at": "2026-10-28",
+  "arb_date": "2026-11-18",
+  "linked_apps": [
+   "APP-001",
+   "APP-002",
+   "APP-004"
+  ],
+  "tier": "tier1",
+  "summary": "New event-driven Claims Notification Service on Azure consuming Claims API via Claims API Gateway.",
+  "nfr": {
+   "availability": "99.95",
+   "rto_hours": 2,
+   "rpo_minutes": 15,
+   "latency_ms": 500,
+   "throughput_tps": 300,
+   "compliance": [
+    "IRDAI",
+    "ISO27001"
+   ]
+  },
+  "components": [
+   {
+    "id": "notif_storage",
+    "type": "storage_account",
+    "encryption_at_rest": true,
+    "public_network_access": false,
+    "tls_min": "1.2",
+    "region": "centralindia",
+    "tags_complete": true,
+    "data_classification": "confidential",
+    "retention_days": 90,
+    "backup": true,
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "apim",
+    "type": "api_management",
+    "internet_facing": true,
+    "waf": true,
+    "tls_min": "1.2"
+   },
+   {
+    "id": "api",
+    "type": "api",
+    "gateway": true,
+    "versioned": true,
+    "contract": "openapi",
+    "auth": "oauth2"
+   }
+  ]
+ }
+]

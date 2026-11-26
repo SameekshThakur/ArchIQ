@@ -1,0 +1,543 @@
+[
+ {
+  "id": "WF-001",
+  "name": "First Notice of Loss to Claim Setup",
+  "domain": "Claims",
+  "steps": [
+   {
+    "app_id": "APP-003",
+    "api_id": "API-0002"
+   },
+   {
+    "app_id": "APP-012",
+    "api_id": "API-0159"
+   },
+   {
+    "app_id": "APP-001",
+    "api_id": "API-0133"
+   },
+   {
+    "app_id": "APP-004",
+    "api_id": "API-0102"
+   },
+   {
+    "app_id": "APP-002",
+    "api_id": "API-0077"
+   }
+  ],
+  "apis": [
+   "API-0002",
+   "API-0077",
+   "API-0102",
+   "API-0133",
+   "API-0159"
+  ],
+  "apps": [
+   "APP-003",
+   "APP-012",
+   "APP-001",
+   "APP-004",
+   "APP-002"
+  ],
+  "volume_per_day": 70472,
+  "sla_minutes": 1440
+ },
+ {
+  "id": "WF-002",
+  "name": "Policy Quote to Bind",
+  "domain": "Policy Admin",
+  "steps": [
+   {
+    "app_id": "APP-018",
+    "api_id": "API-0002"
+   },
+   {
+    "app_id": "APP-023",
+    "api_id": "API-0048"
+   },
+   {
+    "app_id": "APP-022",
+    "api_id": "API-0174"
+   },
+   {
+    "app_id": "APP-013",
+    "api_id": "API-0105"
+   },
+   {
+    "app_id": "APP-029",
+    "api_id": null
+   }
+  ],
+  "apis": [
+   "API-0002",
+   "API-0048",
+   "API-0105",
+   "API-0174"
+  ],
+  "apps": [
+   "APP-018",
+   "APP-023",
+   "APP-022",
+   "APP-013",
+   "APP-029"
+  ],
+  "volume_per_day": 24864,
+  "sla_minutes": 1440
+ },
+ {
+  "id": "WF-003",
+  "name": "Customer Onboarding",
+  "domain": "Customer & Distribution",
+  "steps": [
+   {
+    "app_id": "APP-042",
+    "api_id": "API-0002"
+   },
+   {
+    "app_id": "APP-039",
+    "api_id": "API-0150"
+   },
+   {
+    "app_id": "APP-044",
+    "api_id": "API-0094"
+   },
+   {
+    "app_id": "APP-037",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-043",
+    "api_id": "API-0091"
+   }
+  ],
+  "apis": [
+   "API-0002",
+   "API-0091",
+   "API-0094",
+   "API-0150"
+  ],
+  "apps": [
+   "APP-042",
+   "APP-039",
+   "APP-044",
+   "APP-037",
+   "APP-043"
+  ],
+  "volume_per_day": 64953,
+  "sla_minutes": 1440
+ },
+ {
+  "id": "WF-004",
+  "name": "Policy Renewal",
+  "domain": "Policy Admin",
+  "steps": [
+   {
+    "app_id": "APP-016",
+    "api_id": "API-0002"
+   },
+   {
+    "app_id": "APP-023",
+    "api_id": "API-0140"
+   },
+   {
+    "app_id": "APP-015",
+    "api_id": "API-0054"
+   },
+   {
+    "app_id": "APP-013",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-043",
+    "api_id": "API-0091"
+   }
+  ],
+  "apis": [
+   "API-0002",
+   "API-0054",
+   "API-0091",
+   "API-0140"
+  ],
+  "apps": [
+   "APP-016",
+   "APP-023",
+   "APP-015",
+   "APP-013",
+   "APP-043"
+  ],
+  "volume_per_day": 16827,
+  "sla_minutes": 60
+ },
+ {
+  "id": "WF-005",
+  "name": "Customer Address Change",
+  "domain": "Customer & Distribution",
+  "steps": [
+   {
+    "app_id": "APP-042",
+    "api_id": "API-0002"
+   },
+   {
+    "app_id": "APP-039",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-013",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-037",
+    "api_id": "API-0147"
+   },
+   {
+    "app_id": "APP-015",
+    "api_id": null
+   }
+  ],
+  "apis": [
+   "API-0002",
+   "API-0147"
+  ],
+  "apps": [
+   "APP-042",
+   "APP-039",
+   "APP-013",
+   "APP-037",
+   "APP-015"
+  ],
+  "volume_per_day": 63065,
+  "sla_minutes": 1440
+ },
+ {
+  "id": "WF-006",
+  "name": "Consent Management Update",
+  "domain": "Customer & Distribution",
+  "steps": [
+   {
+    "app_id": "APP-042",
+    "api_id": "API-0002"
+   },
+   {
+    "app_id": "APP-044",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-039",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-046",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-043",
+    "api_id": "API-0103"
+   }
+  ],
+  "apis": [
+   "API-0002",
+   "API-0103"
+  ],
+  "apps": [
+   "APP-042",
+   "APP-044",
+   "APP-039",
+   "APP-046",
+   "APP-043"
+  ],
+  "volume_per_day": 71074,
+  "sla_minutes": 5
+ },
+ {
+  "id": "WF-007",
+  "name": "Claim Payment Disbursement",
+  "domain": "Claims",
+  "steps": [
+   {
+    "app_id": "APP-002",
+    "api_id": "API-0077"
+   },
+   {
+    "app_id": "APP-005",
+    "api_id": "API-0076"
+   },
+   {
+    "app_id": "APP-031",
+    "api_id": "API-0072"
+   },
+   {
+    "app_id": "APP-027",
+    "api_id": null
+   }
+  ],
+  "apis": [
+   "API-0072",
+   "API-0076",
+   "API-0077"
+  ],
+  "apps": [
+   "APP-002",
+   "APP-005",
+   "APP-031",
+   "APP-027"
+  ],
+  "volume_per_day": 26641,
+  "sla_minutes": 240
+ },
+ {
+  "id": "WF-008",
+  "name": "Premium Billing & Collections",
+  "domain": "Billing & Finance",
+  "steps": [
+   {
+    "app_id": "APP-013",
+    "api_id": "API-0066"
+   },
+   {
+    "app_id": "APP-029",
+    "api_id": "API-0093"
+   },
+   {
+    "app_id": "APP-030",
+    "api_id": "API-0124"
+   },
+   {
+    "app_id": "APP-031",
+    "api_id": "API-0072"
+   },
+   {
+    "app_id": "APP-027",
+    "api_id": "API-0071"
+   }
+  ],
+  "apis": [
+   "API-0066",
+   "API-0071",
+   "API-0072",
+   "API-0093",
+   "API-0124"
+  ],
+  "apps": [
+   "APP-013",
+   "APP-029",
+   "APP-030",
+   "APP-031",
+   "APP-027"
+  ],
+  "volume_per_day": 3009,
+  "sla_minutes": 15
+ },
+ {
+  "id": "WF-009",
+  "name": "Fraud Investigation",
+  "domain": "Claims",
+  "steps": [
+   {
+    "app_id": "APP-001",
+    "api_id": "API-0032"
+   },
+   {
+    "app_id": "APP-004",
+    "api_id": "API-0121"
+   },
+   {
+    "app_id": "APP-048",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-059",
+    "api_id": null
+   }
+  ],
+  "apis": [
+   "API-0032",
+   "API-0121"
+  ],
+  "apps": [
+   "APP-001",
+   "APP-004",
+   "APP-048",
+   "APP-059"
+  ],
+  "volume_per_day": 5790,
+  "sla_minutes": 240
+ },
+ {
+  "id": "WF-010",
+  "name": "Agent Commission Settlement",
+  "domain": "Customer & Distribution",
+  "steps": [
+   {
+    "app_id": "APP-013",
+    "api_id": "API-0105"
+   },
+   {
+    "app_id": "APP-040",
+    "api_id": "API-0151"
+   },
+   {
+    "app_id": "APP-036",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-027",
+    "api_id": null
+   }
+  ],
+  "apis": [
+   "API-0105",
+   "API-0151"
+  ],
+  "apps": [
+   "APP-013",
+   "APP-040",
+   "APP-036",
+   "APP-027"
+  ],
+  "volume_per_day": 158398,
+  "sla_minutes": 1440
+ },
+ {
+  "id": "WF-011",
+  "name": "Regulatory Reporting Close",
+  "domain": "Billing & Finance",
+  "steps": [
+   {
+    "app_id": "APP-027",
+    "api_id": "API-0107"
+   },
+   {
+    "app_id": "APP-047",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-033",
+    "api_id": "API-0083"
+   },
+   {
+    "app_id": "APP-032",
+    "api_id": "API-0152"
+   }
+  ],
+  "apis": [
+   "API-0083",
+   "API-0107",
+   "API-0152"
+  ],
+  "apps": [
+   "APP-027",
+   "APP-047",
+   "APP-033",
+   "APP-032"
+  ],
+  "volume_per_day": 204285,
+  "sla_minutes": 60
+ },
+ {
+  "id": "WF-012",
+  "name": "Claims Settlement Approval",
+  "domain": "Claims",
+  "steps": [
+   {
+    "app_id": "APP-001",
+    "api_id": "API-0032"
+   },
+   {
+    "app_id": "APP-002",
+    "api_id": "API-0077"
+   },
+   {
+    "app_id": "APP-005",
+    "api_id": "API-0076"
+   },
+   {
+    "app_id": "APP-027",
+    "api_id": null
+   }
+  ],
+  "apis": [
+   "API-0032",
+   "API-0076",
+   "API-0077"
+  ],
+  "apps": [
+   "APP-001",
+   "APP-002",
+   "APP-005",
+   "APP-027"
+  ],
+  "volume_per_day": 154288,
+  "sla_minutes": 5
+ },
+ {
+  "id": "WF-013",
+  "name": "Month-end Financial Close",
+  "domain": "Billing & Finance",
+  "steps": [
+   {
+    "app_id": "APP-028",
+    "api_id": "API-0052"
+   },
+   {
+    "app_id": "APP-027",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-032",
+    "api_id": "API-0085"
+   },
+   {
+    "app_id": "APP-035",
+    "api_id": null
+   }
+  ],
+  "apis": [
+   "API-0052",
+   "API-0085"
+  ],
+  "apps": [
+   "APP-028",
+   "APP-027",
+   "APP-032",
+   "APP-035"
+  ],
+  "volume_per_day": 917,
+  "sla_minutes": 1440
+ },
+ {
+  "id": "WF-014",
+  "name": "Underwriting Referral",
+  "domain": "Underwriting",
+  "steps": [
+   {
+    "app_id": "APP-021",
+    "api_id": "API-0004"
+   },
+   {
+    "app_id": "APP-022",
+    "api_id": "API-0160"
+   },
+   {
+    "app_id": "APP-024",
+    "api_id": null
+   },
+   {
+    "app_id": "APP-025",
+    "api_id": "API-0113"
+   }
+  ],
+  "apis": [
+   "API-0004",
+   "API-0113",
+   "API-0160"
+  ],
+  "apps": [
+   "APP-021",
+   "APP-022",
+   "APP-024",
+   "APP-025"
+  ],
+  "volume_per_day": 8527,
+  "sla_minutes": 60
+ }
+]

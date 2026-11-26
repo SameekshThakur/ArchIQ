@@ -1,0 +1,41 @@
+[
+ {
+  "id": "API-0001",
+  "name": "Claims API",
+  "version": "v1",
+  "protocol": "REST",
+  "lifecycle": "active",
+  "exposed_by": "APP-002",
+  "owner_id": "OWN-002",
+  "domain": "Claims",
+  "consumers": [
+   "APP-004"
+  ],
+  "gateway": true,
+  "auth": "oauth2",
+  "sla_tier": "critical",
+  "requests_per_day": 145000,
+  "contract": "openapi",
+  "special": "customer_v1"
+ },
+ {
+  "id": "API-0002",
+  "name": "Claims Event API",
+  "version": "v2",
+  "protocol": "REST",
+  "lifecycle": "active",
+  "exposed_by": "APP-002",
+  "owner_id": "OWN-002",
+  "domain": "Claims",
+  "consumers": [
+   "APP-004",
+   "APP-003"
+  ],
+  "gateway": true,
+  "auth": "oauth2",
+  "sla_tier": "high",
+  "requests_per_day": 64000,
+  "contract": "openapi",
+  "special": "customer_v2"
+ }
+]

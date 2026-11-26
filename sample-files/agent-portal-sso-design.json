@@ -1,0 +1,37 @@
+{
+  "name": "Agent Portal Single Sign-On",
+  "components": [
+    {
+      "id": "web",
+      "type": "app_service",
+      "secrets_store": "key_vault",
+      "auth": "oauth2",
+      "tls_min": "1.2",
+      "internet_facing": true,
+      "waf": true,
+      "region": "westeurope",
+      "logging": true,
+      "provisioned_by": "terraform",
+      "tier": "tier2"
+    },
+    {
+      "id": "kv",
+      "type": "key_vault",
+      "public_network_access": false,
+      "tls_min": "1.2",
+      "logging": true,
+      "region": "westeurope",
+      "provisioned_by": "terraform"
+    }
+  ],
+  "nfr": {
+    "availability": "99.9",
+    "rto_hours": 4,
+    "rpo_minutes": 60,
+    "latency_ms": 400,
+    "throughput_tps": 120,
+    "compliance": [
+      "SOC2"
+    ]
+  }
+}

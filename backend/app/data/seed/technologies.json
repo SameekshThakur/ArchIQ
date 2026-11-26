@@ -1,0 +1,68 @@
+[
+ {
+  "name": "WebSphere 8.5",
+  "category": "middleware",
+  "lifecycle": "eol",
+  "support_end": "2022-04"
+ },
+ {
+  "name": "IBM WebSphere 8.5",
+  "category": "middleware",
+  "lifecycle": "eol",
+  "support_end": "2022-04"
+ },
+ {
+  "name": "Java 8",
+  "category": "runtime",
+  "lifecycle": "extended",
+  "support_end": "2030-12"
+ },
+ {
+  "name": "Java 17",
+  "category": "runtime",
+  "lifecycle": "supported",
+  "support_end": "2029-09"
+ },
+ {
+  "name": "IBM Db2",
+  "category": "database",
+  "lifecycle": "extended",
+  "support_end": "2029-04"
+ },
+ {
+  "name": "AKS",
+  "category": "platform",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Azure Service Bus",
+  "category": "middleware",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "Azure SQL Database",
+  "category": "database",
+  "lifecycle": "supported",
+  "support_end": "n/a"
+ },
+ {
+  "name": "React 18",
+  "category": "framework",
+  "lifecycle": "supported",
+  "support_end": "2027-12"
+ },
+ {
+  "name": "Node.js 20",
+  "category": "runtime",
+  "lifecycle": "supported",
+  "support_end": "2026-04"
+ },
+ {
+  "name": "RHEL 8",
+  "category": "os",
+  "lifecycle": "supported",
+  "support_end": "2029-05"
+ }
+]

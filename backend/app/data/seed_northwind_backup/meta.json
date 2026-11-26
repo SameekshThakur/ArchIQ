@@ -1,0 +1,20 @@
+{
+ "seed": 42,
+ "reference_date": "2026-11-05T09:00:00+00:00",
+ "enterprise": "Northwind Assurance",
+ "counts": {
+  "applications": 69,
+  "apis": 180,
+  "databases": 45,
+  "integrations": 229,
+  "cloud_resources": 300,
+  "capabilities": 36,
+  "owners": 25,
+  "documents": 60,
+  "standards": 45,
+  "patterns": 12,
+  "drift": 25,
+  "arb": 10,
+  "workflows": 14
+ }
+}

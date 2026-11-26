@@ -1,0 +1,20 @@
+{
+ "seed": 42,
+ "reference_date": "2026-11-05T09:00:00+00:00",
+ "enterprise": "Kestrel Assurance Ltd",
+ "counts": {
+  "applications": 8,
+  "apis": 2,
+  "databases": 1,
+  "integrations": 8,
+  "cloud_resources": 3,
+  "capabilities": 6,
+  "owners": 8,
+  "documents": 0,
+  "standards": 45,
+  "patterns": 12,
+  "drift": 2,
+  "arb": 1,
+  "workflows": 3
+ }
+}

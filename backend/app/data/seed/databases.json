@@ -1,0 +1,18 @@
+[
+ {
+  "id": "DB-001",
+  "key": "CLAIMS_DB2",
+  "name": "Claims Db2",
+  "engine": "IBM Db2",
+  "kind": "relational",
+  "hosting": "on-prem",
+  "owner_app": "APP-001",
+  "domain": "Claims",
+  "size_gb": 4800,
+  "classification": "restricted",
+  "lifecycle": "extended",
+  "criticality": "critical",
+  "single_instance": true,
+  "dr_tier": "none"
+ }
+]

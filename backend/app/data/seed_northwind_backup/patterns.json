@@ -1,0 +1,150 @@
+[
+ {
+  "id": "PAT-001",
+  "name": "API-led connectivity",
+  "category": "integration",
+  "summary": "Layered system, process and experience APIs that decouple consumers from systems of record.",
+  "tags": [
+   "api",
+   "mulesoft",
+   "gateway"
+  ],
+  "adoption_count": 24,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-002",
+  "name": "Event-driven architecture",
+  "category": "integration",
+  "summary": "Domain events on a durable log so producers and consumers evolve independently.",
+  "tags": [
+   "kafka",
+   "events",
+   "async"
+  ],
+  "adoption_count": 18,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-003",
+  "name": "Strangler-fig migration",
+  "category": "modernization",
+  "summary": "Incrementally route capabilities from a legacy system to a new implementation behind a facade.",
+  "tags": [
+   "legacy",
+   "migration"
+  ],
+  "adoption_count": 11,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-004",
+  "name": "CQRS and read models",
+  "category": "data",
+  "summary": "Separate write models from query-optimised read models fed by events.",
+  "tags": [
+   "cqrs",
+   "read-model"
+  ],
+  "adoption_count": 7,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-005",
+  "name": "Retrieval-augmented generation (RAG)",
+  "category": "ai",
+  "summary": "Ground LLM answers in enterprise content through retrieval over a governed index.",
+  "tags": [
+   "rag",
+   "llm",
+   "azure-openai"
+  ],
+  "adoption_count": 9,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-006",
+  "name": "Agentic AI reference architecture",
+  "category": "ai",
+  "summary": "Tool-using agents with guardrails, human approval and full audit over enterprise APIs.",
+  "tags": [
+   "agents",
+   "llm",
+   "guardrails"
+  ],
+  "adoption_count": 4,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-007",
+  "name": "Saga orchestration",
+  "category": "integration",
+  "summary": "Coordinate multi-service business transactions with compensating actions.",
+  "tags": [
+   "saga",
+   "orchestration"
+  ],
+  "adoption_count": 6,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-008",
+  "name": "Transactional outbox",
+  "category": "integration",
+  "summary": "Publish events atomically with a database change using an outbox table.",
+  "tags": [
+   "outbox",
+   "reliability"
+  ],
+  "adoption_count": 8,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-009",
+  "name": "Anti-corruption layer",
+  "category": "modernization",
+  "summary": "Translate between a legacy model and a clean domain model at the boundary.",
+  "tags": [
+   "acl",
+   "legacy"
+  ],
+  "adoption_count": 5,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-010",
+  "name": "Backend-for-frontend",
+  "category": "integration",
+  "summary": "A tailored API facade per experience channel.",
+  "tags": [
+   "bff",
+   "api"
+  ],
+  "adoption_count": 10,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-011",
+  "name": "Medallion lakehouse",
+  "category": "data",
+  "summary": "Bronze, silver and gold layers with governed promotion of data quality.",
+  "tags": [
+   "lakehouse",
+   "databricks"
+  ],
+  "adoption_count": 6,
+  "status": "approved"
+ },
+ {
+  "id": "PAT-012",
+  "name": "Zero-trust private connectivity",
+  "category": "security",
+  "summary": "Private endpoints, managed identity and policy-enforced network isolation for PaaS.",
+  "tags": [
+   "private-endpoint",
+   "zero-trust"
+  ],
+  "adoption_count": 15,
+  "status": "approved"
+ }
+]

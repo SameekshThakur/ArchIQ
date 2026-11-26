@@ -1,0 +1,253 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import './tokens.css';
+
+/* Metric-matched fallbacks: until Inter / JetBrains Mono load, text is laid out with the same widths, so nothing reflows when they swap in. */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+  size-adjust: 107.4%;
+  ascent-override: 90.2%;
+  descent-override: 22.5%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'JetBrains Mono Fallback';
+  src: local('Consolas'), local('Menlo'), local('Courier New');
+  size-adjust: 100%;
+  ascent-override: 102%;
+  descent-override: 30%;
+  line-gap-override: 0%;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-bg font-sans text-sm text-fg antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    text-rendering: optimizeLegibility;
+    overflow: hidden;
+  }
+  ::selection {
+    background: rgb(var(--select-bg));
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--border)) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: rgb(var(--border));
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--fg-3) / 0.6);
+    background-clip: content-box;
+    border: 3px solid transparent;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  button {
+    font: inherit;
+  }
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  code,
+  kbd,
+  pre,
+  .font-mono {
+    font-feature-settings: 'calt' 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .micro {
+    @apply text-micro font-medium uppercase text-fg-3;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum', 'zero';
+  }
+  .hairline {
+    box-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.035);
+  }
+  [data-theme='light'] .hairline {
+    box-shadow: none;
+  }
+  .grid-texture {
+    background-image:
+      linear-gradient(rgb(var(--grid-line) / var(--grid-alpha)) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--grid-line) / var(--grid-alpha)) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse at 30% 0%, #000 0%, transparent 72%);
+    -webkit-mask-image: radial-gradient(ellipse at 30% 0%, #000 0%, transparent 72%);
+  }
+  .accent-text {
+    background: linear-gradient(90deg, rgb(var(--accent)), rgb(var(--accent-2)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .accent-bg {
+    background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-2)));
+  }
+  .glass {
+    background: rgb(var(--overlay) / 0.82);
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  }
+  .skeleton {
+    @apply relative overflow-hidden rounded bg-raised;
+  }
+  .skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgb(var(--fg) / 0.045), transparent);
+    animation: shimmer 1.6s infinite;
+  }
+  .prose-ai {
+    @apply text-sm leading-relaxed text-fg;
+  }
+  .prose-ai p {
+    @apply my-2;
+  }
+  .prose-ai ul {
+    @apply my-2 list-disc pl-5 marker:text-fg-3;
+  }
+  .prose-ai ol {
+    @apply my-2 list-decimal pl-5 marker:text-fg-3;
+  }
+  .prose-ai li {
+    @apply my-0.5;
+  }
+  .prose-ai h1,
+  .prose-ai h2,
+  .prose-ai h3 {
+    @apply mb-1.5 mt-4 font-semibold text-fg;
+  }
+  .prose-ai h1 {
+    @apply text-lg;
+  }
+  .prose-ai h2 {
+    @apply text-base;
+  }
+  .prose-ai h3 {
+    @apply text-sm;
+  }
+  .prose-ai code {
+    @apply rounded bg-raised px-1 py-0.5 font-mono text-xs text-fg;
+  }
+  .prose-ai pre {
+    @apply my-3 overflow-x-auto rounded-md border border-line bg-bg p-3 font-mono text-xs;
+  }
+  .prose-ai pre code {
+    @apply bg-transparent p-0;
+  }
+  .prose-ai table {
+    @apply my-3 w-full border-collapse text-xs;
+  }
+  .prose-ai th {
+    @apply border-b border-line px-2 py-1.5 text-left font-medium text-fg-2;
+  }
+  .prose-ai td {
+    @apply border-b border-line-subtle px-2 py-1.5;
+  }
+  .prose-ai a {
+    @apply text-accent underline-offset-2 hover:underline;
+  }
+  .prose-ai blockquote {
+    @apply my-2 border-l-2 border-accent/50 pl-3 text-fg-2;
+  }
+  .prose-ai strong {
+    @apply font-semibold;
+  }
+}
+
+/* Range slider thumb */
+.aq-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgb(var(--fg));
+  border: 2px solid rgb(var(--accent));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+}
+.aq-range::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgb(var(--fg));
+  border: 2px solid rgb(var(--accent));
+}
+
+/* React Flow theming */
+.react-flow {
+  --xy-background-color: transparent;
+  --xy-edge-stroke-default: rgb(var(--fg-3) / 0.55);
+  --xy-minimap-background-color-default: rgb(var(--surface));
+  --xy-controls-button-background-color-default: rgb(var(--raised));
+  --xy-controls-button-color-default: rgb(var(--fg-2));
+  --xy-controls-button-border-color-default: rgb(var(--border));
+  --xy-controls-button-background-color-hover-default: rgb(var(--overlay));
+}
+.react-flow__attribution {
+  display: none;
+}
+.react-flow__controls {
+  box-shadow: none !important;
+  border: 1px solid rgb(var(--border));
+  border-radius: 8px;
+  overflow: hidden;
+}
+.react-flow__minimap {
+  border: 1px solid rgb(var(--border));
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Mermaid */
+.mermaid-host svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Resize handles */
+[data-panel-resize-handle-id] {
+  position: relative;
+}

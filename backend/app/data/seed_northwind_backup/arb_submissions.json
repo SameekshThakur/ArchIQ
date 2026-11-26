@@ -1,0 +1,656 @@
+[
+ {
+  "id": "ARB-2026-001",
+  "title": "Claims Copilot GenAI Assistant",
+  "domain": "Claims",
+  "submitter": "Olivia Brennan",
+  "stage": "ai_reviewed",
+  "submitted_at": "2026-10-21",
+  "arb_date": "2026-11-12",
+  "tier": "tier2",
+  "summary": "Generative AI assistant that helps adjusters check coverage and summarise claim files.",
+  "nfr": {
+   "availability": "99.9",
+   "rto_hours": 4,
+   "rpo_minutes": 15,
+   "latency_ms": 2500,
+   "throughput_tps": 40,
+   "compliance": [
+    "GDPR",
+    "SOC2"
+   ]
+  },
+  "components": [
+   {
+    "id": "llm",
+    "type": "azure_openai",
+    "technology": "Azure OpenAI",
+    "public_network_access": true,
+    "auth": "api_key",
+    "content_filter": "standard",
+    "human_in_loop": false,
+    "audit_logging": false,
+    "region": "westeurope",
+    "tls_min": "1.2",
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "search",
+    "type": "ai_search",
+    "public_network_access": false
+   },
+   {
+    "id": "kv",
+    "type": "key_vault",
+    "public_network_access": false
+   },
+   {
+    "id": "api",
+    "type": "app_service",
+    "secrets_store": "env_vars",
+    "auth": "managed_identity",
+    "tls_min": "1.2",
+    "region": "westeurope",
+    "logging": true,
+    "internet_facing": false,
+    "provisioned_by": "terraform",
+    "tier": "tier2"
+   },
+   {
+    "id": "apim",
+    "type": "api_management",
+    "internet_facing": true,
+    "waf": true,
+    "tls_min": "1.2"
+   }
+  ],
+  "submitter_id": "OWN-016",
+  "linked_apps": [
+   "APP-010",
+   "APP-053",
+   "APP-054"
+  ]
+ },
+ {
+  "id": "ARB-2026-002",
+  "title": "Customer 360 Event Streaming",
+  "domain": "Customer & Distribution",
+  "submitter": "Elena Petrova",
+  "stage": "arb_scheduled",
+  "submitted_at": "2026-10-14",
+  "arb_date": "2026-11-10",
+  "tier": "tier1",
+  "summary": "Publish customer change events on Kafka and build a unified customer view for downstream domains.",
+  "nfr": {
+   "availability": "99.95",
+   "rto_hours": 2,
+   "rpo_minutes": 5,
+   "latency_ms": 500,
+   "throughput_tps": 1200,
+   "compliance": [
+    "GDPR"
+   ]
+  },
+  "components": [
+   {
+    "id": "kafka",
+    "type": "kafka",
+    "technology": "Apache Kafka",
+    "tls_min": "1.2",
+    "logging": true,
+    "public_network_access": false
+   },
+   {
+    "id": "svc",
+    "type": "aks_cluster",
+    "secrets_store": "key_vault",
+    "auth": "managed_identity",
+    "tls_min": "1.2",
+    "multi_az": true,
+    "instances": 3,
+    "tier": "tier1",
+    "region": "westeurope",
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "store",
+    "type": "cosmos_db",
+    "encryption_at_rest": true,
+    "public_network_access": false,
+    "backup": true,
+    "multi_az": true,
+    "tier": "tier1",
+    "data_classification": "restricted",
+    "cmk": true,
+    "retention_days": 2555,
+    "pii": true,
+    "pii_masking": true,
+    "region": "westeurope",
+    "tls_min": "1.2",
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "apim",
+    "type": "api_management",
+    "internet_facing": false,
+    "tls_min": "1.2"
+   },
+   {
+    "id": "api",
+    "type": "api",
+    "gateway": true,
+    "versioned": true,
+    "contract": "openapi",
+    "auth": "oauth2"
+   }
+  ],
+  "submitter_id": "OWN-014",
+  "linked_apps": [
+   "APP-052",
+   "APP-057",
+   "APP-039",
+   "APP-037"
+  ]
+ },
+ {
+  "id": "ARB-2026-003",
+  "title": "Oracle 12c Retirement: Policy Master DB",
+  "domain": "Policy Admin",
+  "submitter": "Sarah Whitfield",
+  "stage": "draft",
+  "submitted_at": "2026-11-02",
+  "arb_date": null,
+  "tier": "tier1",
+  "summary": "Migrate the Policy Master database off Oracle 12c and decouple direct consumers.",
+  "nfr": {
+   "availability": "99.95",
+   "rto_hours": 1,
+   "compliance": [
+    "SOX"
+   ]
+  },
+  "components": [
+   {
+    "id": "target",
+    "type": "postgres",
+    "technology": "PostgreSQL 15",
+    "encryption_at_rest": true,
+    "public_network_access": false,
+    "backup": true,
+    "multi_az": true,
+    "tier": "tier1",
+    "data_classification": "restricted",
+    "cmk": false,
+    "retention_days": 3650,
+    "pii": true,
+    "pii_masking": false,
+    "region": "westeurope",
+    "tls_min": "1.2",
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "int1",
+    "type": "integration",
+    "style": "direct_db",
+    "source": "Underwriting Workbench"
+   },
+   {
+    "id": "int2",
+    "type": "integration",
+    "style": "direct_db",
+    "source": "Collections Manager"
+   },
+   {
+    "id": "int3",
+    "type": "integration",
+    "style": "file_batch",
+    "source": "Agent Commission Engine"
+   },
+   {
+    "id": "oldsrc",
+    "type": "sql_database",
+    "technology": "Oracle 12c",
+    "encryption_at_rest": true,
+    "public_network_access": false
+   }
+  ],
+  "submitter_id": "OWN-005",
+  "linked_apps": [
+   "APP-013",
+   "APP-014",
+   "APP-021",
+   "APP-030",
+   "APP-040"
+  ]
+ },
+ {
+  "id": "ARB-2026-004",
+  "title": "Claims Intake Modernisation (API-led)",
+  "domain": "Claims",
+  "submitter": "Ananya Rao",
+  "stage": "conditions",
+  "submitted_at": "2026-09-30",
+  "arb_date": "2026-10-22",
+  "tier": "tier1",
+  "summary": "Introduce system and process APIs in front of ClaimCenter and retire the direct Oracle 12c reads.",
+  "nfr": {
+   "availability": "99.95",
+   "rto_hours": 2,
+   "rpo_minutes": 5,
+   "latency_ms": 800,
+   "throughput_tps": 350,
+   "compliance": [
+    "GDPR",
+    "SOC2"
+   ]
+  },
+  "components": [
+   {
+    "id": "apim",
+    "type": "api_management",
+    "internet_facing": true,
+    "waf": true,
+    "tls_min": "1.2"
+   },
+   {
+    "id": "exp",
+    "type": "app_service",
+    "secrets_store": "key_vault",
+    "auth": "managed_identity",
+    "tls_min": "1.2",
+    "multi_az": true,
+    "instances": 3,
+    "tier": "tier1",
+    "internet_facing": true,
+    "waf": true,
+    "region": "westeurope",
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "proc",
+    "type": "aks_cluster",
+    "secrets_store": "key_vault",
+    "auth": "managed_identity",
+    "tls_min": "1.2",
+    "multi_az": true,
+    "instances": 2,
+    "tier": "tier1",
+    "region": "westeurope",
+    "logging": true,
+    "provisioned_by": "bicep"
+   },
+   {
+    "id": "sysapi",
+    "type": "api",
+    "gateway": true,
+    "versioned": true,
+    "contract": "openapi",
+    "auth": "oauth2"
+   },
+   {
+    "id": "int",
+    "type": "integration",
+    "style": "direct_db",
+    "source": "Fraud Scoring Engine"
+   },
+   {
+    "id": "db",
+    "type": "postgres",
+    "technology": "PostgreSQL 15",
+    "encryption_at_rest": true,
+    "public_network_access": false,
+    "backup": true,
+    "multi_az": true,
+    "tier": "tier1",
+    "data_classification": "confidential",
+    "retention_days": 2555,
+    "region": "westeurope",
+    "tls_min": "1.2",
+    "logging": true,
+    "provisioned_by": "terraform"
+   }
+  ],
+  "submitter_id": "OWN-003",
+  "linked_apps": [
+   "APP-003",
+   "APP-001",
+   "APP-012",
+   "APP-004"
+  ]
+ },
+ {
+  "id": "ARB-2026-005",
+  "title": "Underwriting Rules Externalisation",
+  "domain": "Underwriting",
+  "submitter": "Lucia Fernandez",
+  "stage": "approved",
+  "submitted_at": "2026-08-12",
+  "arb_date": "2026-09-03",
+  "tier": "tier2",
+  "summary": "Move underwriting rules into a versioned decision service exposed by API.",
+  "nfr": {
+   "availability": "99.9",
+   "rto_hours": 4,
+   "rpo_minutes": 30,
+   "latency_ms": 300,
+   "throughput_tps": 250,
+   "compliance": [
+    "SOC2"
+   ]
+  },
+  "components": [
+   {
+    "id": "svc",
+    "type": "aks_cluster",
+    "secrets_store": "key_vault",
+    "auth": "managed_identity",
+    "tls_min": "1.2",
+    "multi_az": true,
+    "instances": 3,
+    "tier": "tier2",
+    "region": "northeurope",
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "api",
+    "type": "api",
+    "gateway": true,
+    "versioned": true,
+    "contract": "openapi",
+    "auth": "oauth2"
+   },
+   {
+    "id": "db",
+    "type": "postgres",
+    "technology": "PostgreSQL 15",
+    "encryption_at_rest": true,
+    "public_network_access": false,
+    "backup": true,
+    "data_classification": "confidential",
+    "retention_days": 2555,
+    "region": "northeurope",
+    "tls_min": "1.2",
+    "logging": true,
+    "provisioned_by": "terraform"
+   }
+  ],
+  "submitter_id": "OWN-007",
+  "linked_apps": [
+   "APP-021",
+   "APP-022",
+   "APP-023"
+  ]
+ },
+ {
+  "id": "ARB-2026-006",
+  "title": "Agent Portal Single Sign-On",
+  "domain": "Customer & Distribution",
+  "submitter": "Daniel Okafor",
+  "stage": "approved",
+  "submitted_at": "2026-07-22",
+  "arb_date": "2026-08-14",
+  "tier": "tier2",
+  "summary": "Federate the agent portal with the enterprise identity platform.",
+  "nfr": {
+   "availability": "99.9",
+   "rto_hours": 4,
+   "rpo_minutes": 60,
+   "latency_ms": 400,
+   "throughput_tps": 120,
+   "compliance": [
+    "SOC2"
+   ]
+  },
+  "components": [
+   {
+    "id": "web",
+    "type": "app_service",
+    "secrets_store": "key_vault",
+    "auth": "oauth2",
+    "tls_min": "1.2",
+    "internet_facing": true,
+    "waf": true,
+    "region": "westeurope",
+    "logging": true,
+    "provisioned_by": "terraform",
+    "tier": "tier2"
+   },
+   {
+    "id": "kv",
+    "type": "key_vault",
+    "public_network_access": false,
+    "tls_min": "1.2",
+    "logging": true,
+    "region": "westeurope",
+    "provisioned_by": "terraform"
+   }
+  ],
+  "submitter_id": "OWN-013",
+  "linked_apps": [
+   "APP-041",
+   "APP-060"
+  ]
+ },
+ {
+  "id": "ARB-2026-007",
+  "title": "Regulatory Reporting Lakehouse",
+  "domain": "Billing & Finance",
+  "submitter": "Priya Venkataraman",
+  "stage": "arb_scheduled",
+  "submitted_at": "2026-10-18",
+  "arb_date": "2026-11-19",
+  "tier": "tier2",
+  "summary": "Consolidate regulatory reporting onto a medallion lakehouse with governed lineage.",
+  "nfr": {
+   "availability": "99.5",
+   "rto_hours": 8,
+   "rpo_minutes": 240,
+   "throughput_tps": 60,
+   "compliance": [
+    "SOX",
+    "Solvency II"
+   ]
+  },
+  "components": [
+   {
+    "id": "lake",
+    "type": "data_lake",
+    "encryption_at_rest": true,
+    "public_network_access": true,
+    "backup": true,
+    "data_classification": "restricted",
+    "cmk": true,
+    "retention_days": 3650,
+    "pii": false,
+    "region": "westeurope",
+    "tls_min": "1.2",
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "job",
+    "type": "function",
+    "secrets_store": "key_vault",
+    "auth": "managed_identity",
+    "tls_min": "1.2",
+    "region": "westeurope",
+    "logging": true,
+    "provisioned_by": "terraform"
+   }
+  ],
+  "submitter_id": "OWN-009",
+  "linked_apps": [
+   "APP-033",
+   "APP-047",
+   "APP-048",
+   "APP-027"
+  ]
+ },
+ {
+  "id": "ARB-2026-008",
+  "title": "Mainframe Claims API Facade",
+  "domain": "Claims",
+  "submitter": "Victor Alvarez",
+  "stage": "ai_reviewed",
+  "submitted_at": "2026-10-27",
+  "arb_date": "2026-11-17",
+  "tier": "tier1",
+  "summary": "Strangler-fig facade exposing mainframe claim settlement as REST APIs.",
+  "nfr": {
+   "availability": "99.95",
+   "rto_hours": 2,
+   "rpo_minutes": 15,
+   "latency_ms": 900,
+   "throughput_tps": 180,
+   "compliance": [
+    "SOX"
+   ]
+  },
+  "components": [
+   {
+    "id": "facade",
+    "type": "aks_cluster",
+    "secrets_store": "key_vault",
+    "auth": "managed_identity",
+    "tls_min": "1.2",
+    "multi_az": true,
+    "instances": 1,
+    "tier": "tier1",
+    "region": "westeurope",
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "api",
+    "type": "api",
+    "gateway": true,
+    "versioned": true,
+    "contract": "openapi",
+    "auth": "mtls"
+   },
+   {
+    "id": "mq",
+    "type": "integration",
+    "style": "point_to_point",
+    "source": "Claims Mainframe Core"
+   }
+  ],
+  "submitter_id": "OWN-023",
+  "linked_apps": [
+   "APP-002",
+   "APP-005",
+   "APP-001"
+  ]
+ },
+ {
+  "id": "ARB-2026-009",
+  "title": "Customer Notification Consolidation",
+  "domain": "Customer & Distribution",
+  "submitter": "Aisha Khan",
+  "stage": "rejected",
+  "submitted_at": "2026-06-30",
+  "arb_date": "2026-07-24",
+  "tier": "tier3",
+  "summary": "Introduce a third notification service for marketing campaigns.",
+  "nfr": {
+   "availability": "99.5",
+   "compliance": [
+    "GDPR"
+   ]
+  },
+  "components": [
+   {
+    "id": "svc",
+    "type": "app_service",
+    "secrets_store": "env_vars",
+    "auth": "password",
+    "tls_min": "1.0",
+    "region": "westeurope",
+    "logging": false,
+    "provisioned_by": "portal",
+    "tier": "tier3"
+   },
+   {
+    "id": "llm",
+    "type": "llm_api_external",
+    "technology": "Public LLM API",
+    "never": false
+   }
+  ],
+  "submitter_id": "OWN-012",
+  "linked_apps": [
+   "APP-043",
+   "APP-012"
+  ]
+ },
+ {
+  "id": "ARB-2026-010",
+  "title": "Fraud Detection Real-time Scoring",
+  "domain": "Claims",
+  "submitter": "Olivia Brennan",
+  "stage": "draft",
+  "submitted_at": "2026-11-03",
+  "arb_date": null,
+  "tier": "tier1",
+  "summary": "Stream claim events to a real-time fraud model with sub-second scoring.",
+  "nfr": {
+   "availability": "99.95",
+   "latency_ms": 400,
+   "throughput_tps": 900,
+   "compliance": [
+    "GDPR"
+   ]
+  },
+  "components": [
+   {
+    "id": "kafka",
+    "type": "kafka",
+    "technology": "Apache Kafka",
+    "tls_min": "1.2",
+    "logging": true,
+    "public_network_access": false
+   },
+   {
+    "id": "score",
+    "type": "aks_cluster",
+    "secrets_store": "key_vault",
+    "auth": "managed_identity",
+    "tls_min": "1.2",
+    "multi_az": true,
+    "instances": 3,
+    "tier": "tier1",
+    "region": "westeurope",
+    "logging": true,
+    "provisioned_by": "terraform"
+   },
+   {
+    "id": "store",
+    "type": "cosmos_db",
+    "encryption_at_rest": true,
+    "public_network_access": false,
+    "backup": true,
+    "multi_az": true,
+    "tier": "tier1",
+    "data_classification": "confidential",
+    "retention_days": 1095,
+    "region": "westeurope",
+    "tls_min": "1.2",
+    "logging": true,
+    "provisioned_by": "terraform"
+   }
+  ],
+  "submitter_id": "OWN-016",
+  "linked_apps": [
+   "APP-004",
+   "APP-048",
+   "APP-057",
+   "APP-055"
+  ]
+ }
+]

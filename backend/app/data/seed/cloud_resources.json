@@ -1,0 +1,114 @@
+[
+ {
+  "id": "CLD-0001",
+  "name": "stkestrelclaimsprd01",
+  "provider": "azure",
+  "type": "storage_account",
+  "region": "centralindia",
+  "env": "prod",
+  "app_id": "APP-004",
+  "domain": "Claims",
+  "resource_group": "rg-kestrel-claims-prd",
+  "subscription": "kestrel-prd-ci",
+  "approved": {
+   "public_network_access": false,
+   "https_only": true,
+   "min_tls": "1.2",
+   "replication": "GRS",
+   "blob_public_access": false,
+   "soft_delete_days": 30
+  },
+  "deployed": {
+   "public_network_access": true,
+   "https_only": true,
+   "min_tls": "1.2",
+   "replication": "LRS",
+   "blob_public_access": false,
+   "soft_delete_days": 30
+  },
+  "managed_by": "terraform",
+  "tags": {
+   "owner": "Claims Platform Engineering",
+   "cost_centre": "CC-4410",
+   "data_classification": "confidential"
+  },
+  "created_at": "2026-06-15T09:00:00+00:00",
+  "resource_guid": "00000000-0000-0000-0000-000000000001",
+  "drift_meta": {
+   "severity": "critical",
+   "detected_at": "2026-11-05T08:30:00+00:00",
+   "status": "open",
+   "ticket": null,
+   "exception_expires": null
+  }
+ },
+ {
+  "id": "CLD-0002",
+  "name": "kv-kestrel-claims-prd",
+  "provider": "azure",
+  "type": "key_vault",
+  "region": "centralindia",
+  "env": "prod",
+  "app_id": "APP-004",
+  "domain": "Claims",
+  "resource_group": "rg-kestrel-claims-prd",
+  "subscription": "kestrel-prd-ci",
+  "approved": {
+   "public_network_access": false,
+   "soft_delete": true,
+   "purge_protection": true,
+   "rbac": true
+  },
+  "deployed": {
+   "public_network_access": false,
+   "soft_delete": true,
+   "purge_protection": false,
+   "rbac": true
+  },
+  "managed_by": "terraform",
+  "tags": {
+   "owner": "Claims Platform Engineering",
+   "cost_centre": "CC-4410",
+   "data_classification": "confidential"
+  },
+  "created_at": "2026-06-15T09:00:00+00:00",
+  "resource_guid": "00000000-0000-0000-0000-000000000002",
+  "drift_meta": {
+   "severity": "medium",
+   "detected_at": "2026-11-04T14:15:00+00:00",
+   "status": "open",
+   "ticket": null,
+   "exception_expires": null
+  }
+ },
+ {
+  "id": "CLD-0003",
+  "name": "vnet-kestrel-claims-prd",
+  "provider": "azure",
+  "type": "virtual_network",
+  "region": "centralindia",
+  "env": "prod",
+  "app_id": "APP-004",
+  "domain": "Claims",
+  "resource_group": "rg-kestrel-claims-prd",
+  "subscription": "kestrel-prd-ci",
+  "approved": {
+   "ddos": true,
+   "nsg_rule_ssh": "deny",
+   "flow_logs": true
+  },
+  "deployed": {
+   "ddos": true,
+   "nsg_rule_ssh": "deny",
+   "flow_logs": true
+  },
+  "managed_by": "terraform",
+  "tags": {
+   "owner": "Claims Platform Engineering",
+   "cost_centre": "CC-4410",
+   "data_classification": "confidential"
+  },
+  "created_at": "2026-06-15T09:00:00+00:00",
+  "resource_guid": "00000000-0000-0000-0000-000000000003"
+ }
+]
